@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/sequelize": "^4.28.14",
+    "dotenv": "^16.0.3",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.2",
     "next": "13.0.2",

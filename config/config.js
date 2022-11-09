@@ -1,10 +1,14 @@
+require('dotenv').config({ path: './.env.local' })
+
 module.exports = {
-  dialect: "postgres",
-  host: process.env.DB_HOST,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  define: {
-    timestamps: true
+  development: {
+    dialect: process.env.NEXT_PUBLIC_DB_DIALECT,
+    host: process.env.NEXT_PUBLIC_DB_HOST,
+    username: process.env.NEXT_PUBLIC_DB_USER,
+    password: process.env.NEXT_PUBLIC_DB_PASSWORD,
+    database: process.env.NEXT_PUBLIC_DB_NAME,
+    define: {
+      timestamps: true
+    }
   }
 }
