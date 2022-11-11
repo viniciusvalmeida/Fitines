@@ -1,13 +1,23 @@
+const bairrosJson = require('../config/bairros.json')
+
 'use strict';
 
-async function consomeAPI () {
-  const api = await fetch('http://enderecos.metheora.com/api/cidade/4964/bairros')
-  const resolve = await api.json()
+const bairros = bairrosJson.map(bairro => {
+  return {
+    nome: bairro.Nome,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+})
 
-  return resolve
-}
+// async function consomeAPI () {
+//   const api = await fetch('http://enderecos.metheora.com/api/cidade/4964/bairros')
+//   const resolve = await api.json()
 
-console.log(consomeAPI())
+//   return resolve
+// }
+
+// console.log(consomeAPI())
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -26,6 +36,8 @@ module.exports = {
     //   createdAt: new Date(),
     //   updatedAt: new Date()
     // }])
+
+    return queryInterface.bulkInsert('bairros', bairros)
   },
 
   async down (queryInterface, Sequelize) {
