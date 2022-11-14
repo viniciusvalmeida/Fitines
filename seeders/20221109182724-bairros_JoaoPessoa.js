@@ -4,9 +4,7 @@ const bairrosJson = require('../config/bairros.json')
 
 const bairros = bairrosJson.map(bairro => {
   return {
-    nome: bairro.Nome,
-    createdAt: new Date(),
-    updatedAt: new Date()
+    nome: bairro.Nome
   }
 })
 
