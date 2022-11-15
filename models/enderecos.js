@@ -15,12 +15,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   enderecos.init({
     logradouro: DataTypes.STRING,
-    numero: DataTypes.STRING,
+    numero: DataTypes.STRING(4),
     bairroId: DataTypes.INTEGER,
     complemento: DataTypes.STRING,
     cidadeId: DataTypes.INTEGER,
     estadoId: DataTypes.INTEGER,
-    cep: DataTypes.STRING
+    cep: DataTypes.STRING(8)
   }, {
     sequelize,
     modelName: 'enderecos',
