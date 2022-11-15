@@ -12,10 +12,14 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-
-    await queryInterface.bulkInsert('estados', [{
-      nome: 'PB'
-    }])
+   await queryInterface.bulkInsert('clientes', [{
+    nome: 'José da Silva',
+    cpf: '99999999999',
+    telefone: '988887777',
+    enderecoId: 1,
+    createdAt: new Date(),
+    updatedAt: new Date()
+   }])
   },
 
   async down (queryInterface, Sequelize) {
@@ -25,6 +29,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     await queryInterface.bulkDelete('estados', null, {})
+    await queryInterface.bulkDelete('clientes', null, {})
   }
 };

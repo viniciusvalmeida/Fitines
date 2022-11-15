@@ -10,13 +10,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       nome: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       cpf: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING(11),
+        allowNull: false
       },
       telefone: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING(11),
+        allowNull: false
       },
       enderecoId: {
         type: Sequelize.INTEGER,

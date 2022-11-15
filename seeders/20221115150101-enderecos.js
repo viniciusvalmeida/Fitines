@@ -12,10 +12,17 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-
-    await queryInterface.bulkInsert('estados', [{
-      nome: 'PB'
-    }])
+   await queryInterface.bulkInsert('enderecos', [{
+    logradouro: 'Rua Fulano de Tal',
+    numero: '123',
+    bairroId: 2,
+    complemento: null,
+    cidadeId: 1,
+    estadoId: 1,
+    cep: '58076410',
+    createdAt: new Date(),
+    updatedAt: new Date()
+   }])
   },
 
   async down (queryInterface, Sequelize) {
@@ -25,6 +32,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     await queryInterface.bulkDelete('estados', null, {})
+     await queryInterface.bulkDelete('enderecos', null, {})
   }
 };

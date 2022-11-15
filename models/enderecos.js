@@ -14,14 +14,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   enderecos.init({
-    clienteId: DataTypes.INTEGER,
     logradouro: DataTypes.STRING,
-    numero: DataTypes.INTEGER,
+    numero: DataTypes.STRING,
     bairroId: DataTypes.INTEGER,
     complemento: DataTypes.STRING,
     cidadeId: DataTypes.INTEGER,
     estadoId: DataTypes.INTEGER,
-    cep: DataTypes.INTEGER
+    cep: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'enderecos',

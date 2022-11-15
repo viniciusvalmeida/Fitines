@@ -10,10 +10,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       logradouro: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       numero: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING(4),
+        allowNull: false,
       },
       bairroId: {
         type: Sequelize.INTEGER,
@@ -49,7 +51,8 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       cep: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING(8),
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
