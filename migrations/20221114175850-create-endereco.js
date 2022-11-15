@@ -9,16 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      clienteId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'clientes',
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
-      },
       logradouro: {
         type: Sequelize.STRING
       },
@@ -29,7 +19,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'bairro',
+          model: 'bairros',
           key: 'id'
         },
         onUpdate: 'CASCADE',
@@ -42,7 +32,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'cidade',
+          model: 'cidades',
           key: 'id'
         },
         onUpdate: 'CASCADE',
@@ -52,7 +42,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'estado',
+          model: 'estados',
           key: 'id'
         },
         onUpdate: 'CASCADE',

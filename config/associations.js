@@ -10,8 +10,8 @@ clientes.hasOne(enderecos, {
 })
 
 enderecos.belongsTo(clientes, {
-  foreingKey: 'enderecoId',
-  as: 'endereco'
+  foreingKey: 'clienteId',
+  as: 'clienteId'
 })
 
 module.exports = { clientes, enderecos }
