@@ -1,7 +1,6 @@
 require('dotenv').config({ path: './.env.local' })
 
 module.exports = {
-  development: {
     dialect: process.env.NEXT_PUBLIC_DB_DIALECT,
     host: process.env.NEXT_PUBLIC_DB_HOST,
     username: process.env.NEXT_PUBLIC_DB_USER,
@@ -10,5 +9,4 @@ module.exports = {
     define: {
       timestamps: true
     }
-  }
 }
