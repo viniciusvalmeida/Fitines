@@ -14,10 +14,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   clientes.init({
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true
+    },
     nome: DataTypes.STRING,
     cpf: DataTypes.STRING(11),
     telefone: DataTypes.STRING(11),
-    enderecoId: DataTypes.INTEGER
+    enderecoId: DataTypes.INTEGER,
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'clientes',
