@@ -21,16 +21,6 @@ module.exports = {
         type: Sequelize.STRING(11),
         allowNull: false
       },
-      enderecoId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'enderecos',
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
-      },
       createdAt: {
         type: Sequelize.DATE
       },

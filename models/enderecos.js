@@ -28,7 +28,11 @@ module.exports = (sequelize, DataTypes) => {
     estadoId: DataTypes.INTEGER,
     cep: DataTypes.STRING(8),
     createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE
+    updatedAt: DataTypes.DATE,
+    clienteId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'enderecos',

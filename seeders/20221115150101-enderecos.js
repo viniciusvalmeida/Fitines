@@ -21,7 +21,8 @@ module.exports = {
     estadoId: 1,
     cep: '58076410',
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
+    clienteId: 1
    }])
   },
 

@@ -16,9 +16,9 @@ module.exports = {
     nome: 'José da Silva',
     cpf: '99999999999',
     telefone: '988887777',
-    enderecoId: 1,
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
+    enderecoId: 1
    }])
   },
 

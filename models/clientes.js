@@ -25,7 +25,11 @@ module.exports = (sequelize, DataTypes) => {
     telefone: DataTypes.STRING(11),
     enderecoId: DataTypes.INTEGER,
     createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE
+    updatedAt: DataTypes.DATE,
+    enderecoId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'clientes',
