@@ -14,13 +14,21 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   enderecos.init({
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true
+    },
     logradouro: DataTypes.STRING,
     numero: DataTypes.STRING(4),
     bairroId: DataTypes.INTEGER,
     complemento: DataTypes.STRING,
     cidadeId: DataTypes.INTEGER,
     estadoId: DataTypes.INTEGER,
-    cep: DataTypes.STRING(8)
+    cep: DataTypes.STRING(8),
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'enderecos',
