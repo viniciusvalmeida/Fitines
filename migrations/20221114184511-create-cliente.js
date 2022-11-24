@@ -13,6 +13,14 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      sexoId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'sexo',
+          key: 'id'
+        }
+      },
       cpf: {
         type: Sequelize.STRING(11),
         allowNull: false
@@ -20,6 +28,16 @@ module.exports = {
       telefone: {
         type: Sequelize.STRING(11),
         allowNull: false
+      },
+      enderecoId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'enderecos',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       createdAt: {
         type: Sequelize.DATE

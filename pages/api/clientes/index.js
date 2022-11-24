@@ -14,7 +14,7 @@ export default async function clientes(req, res) {
     break;
   
     case 'POST':
-      const { nome, cpf, telefone } = req.body
+      const { nome, sexoId, cpf, telefone } = req.body
       const { logradouro, numero, bairroId, complemento, cidadeId, estadoId, cep } = req.body
       
       const endereco = {
@@ -31,6 +31,7 @@ export default async function clientes(req, res) {
 
       const cliente = {
         nome,
+        sexoId,
         cpf,
         telefone,
         enderecoId: id

@@ -17,18 +17,16 @@ module.exports = {
         type: Sequelize.STRING(4),
         allowNull: false,
       },
+      complemento: {
+        type: Sequelize.STRING
+      },
       bairroId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'bairros',
           key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
-      },
-      complemento: {
-        type: Sequelize.STRING
+        }
       },
       cidadeId: {
         type: Sequelize.INTEGER,
@@ -36,9 +34,7 @@ module.exports = {
         references: {
           model: 'cidades',
           key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        }
       },
       estadoId: {
         type: Sequelize.INTEGER,
@@ -46,9 +42,7 @@ module.exports = {
         references: {
           model: 'estados',
           key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        }
       },
       cep: {
         type: Sequelize.STRING(8),

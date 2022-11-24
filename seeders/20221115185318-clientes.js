@@ -14,11 +14,12 @@ module.exports = {
     */
    await queryInterface.bulkInsert('clientes', [{
     nome: 'José da Silva',
+    sexoId: 2,
     cpf: '99999999999',
     telefone: '988887777',
+    enderecoId: 1,
     createdAt: new Date(),
     updatedAt: new Date(),
-    enderecoId: 1
    }])
   },
 
