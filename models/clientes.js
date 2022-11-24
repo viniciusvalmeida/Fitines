@@ -32,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
                 },
                 onUpdate: "CASCADE",
                 onDelete: "CASCADE",
+                hooks: true
             },
             createdAt: DataTypes.DATE,
             updatedAt: DataTypes.DATE,
