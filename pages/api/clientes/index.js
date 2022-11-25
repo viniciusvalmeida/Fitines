@@ -17,7 +17,17 @@ export default async function clientes(req, res) {
       const { nome, sexoId, cpf, telefone } = req.body
       const { logradouro, numero, bairroId, complemento, cidadeId, estadoId, cep } = req.body
       
+      const cliente = {
+        nome,
+        sexoId,
+        cpf,
+        telefone
+      }
+
+      const { id } = await Clientes.create(cliente)
+      
       const endereco = {
+        clienteId: id,
         logradouro,
         numero,
         bairroId,
@@ -27,17 +37,7 @@ export default async function clientes(req, res) {
         cep
       }
 
-      const { id } = await Enderecos.create(endereco)
-
-      const cliente = {
-        nome,
-        sexoId,
-        cpf,
-        telefone,
-        enderecoId: id
-      }
-
-      await Clientes.create(cliente)
+      await Enderecos.create(endereco)
         
       res.status(200).json({ message: `Parabéns ${nome}! Agora você faz parte da família FITINES!` })        
     break;

@@ -23,17 +23,6 @@ module.exports = (sequelize, DataTypes) => {
             sexoId: DataTypes.STRING,
             cpf: DataTypes.STRING(11),
             telefone: DataTypes.STRING(11),
-            enderecoId: {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                references: {
-                    model: "enderecos",
-                    key: "id",
-                },
-                onUpdate: "CASCADE",
-                onDelete: "CASCADE",
-                hooks: true
-            },
             createdAt: DataTypes.DATE,
             updatedAt: DataTypes.DATE,
         },

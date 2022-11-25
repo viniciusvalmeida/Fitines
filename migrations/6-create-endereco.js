@@ -9,6 +9,16 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      clienteId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'clientes',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
       logradouro: {
         type: Sequelize.STRING,
         allowNull: false

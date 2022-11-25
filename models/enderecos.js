@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false,
                 primaryKey: true,
             },
+            clienteId: DataTypes.INTEGER,
             logradouro: DataTypes.STRING,
             numero: DataTypes.STRING(4),
             bairroId: DataTypes.INTEGER,
