@@ -1,6 +1,4 @@
-const { DataTypes } = require('sequelize')
-const sequelize = require('../../../config/sequelize') 
-const Clientes = require('../../../models/clientes')(sequelize,DataTypes)
+const Clientes = require('../../../models/clientes')
 
 export default async function cliente(req, res) {
   const reqMethod = req.method
