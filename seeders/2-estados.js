@@ -13,7 +13,7 @@ module.exports = {
      * }], {});
     */
 
-    await queryInterface.bulkInsert('estados', [{
+    await queryInterface.bulkInsert('Estados', [{
       nome: 'PB'
     }])
   },
@@ -25,6 +25,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     await queryInterface.bulkDelete('estados', null, {})
+     await queryInterface.bulkDelete('Estados', null, {})
   }
 };

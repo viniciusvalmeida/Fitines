@@ -12,7 +12,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-     await queryInterface.bulkInsert('cidades', [{
+     await queryInterface.bulkInsert('Cidades', [{
       nome: 'João Pessoa'
     }])
   },
@@ -24,6 +24,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     await queryInterface.bulkDelete('cidades', null, {})
+     await queryInterface.bulkDelete('Cidades', null, {})
   }
 };

@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('enderecos', {
+    await queryInterface.createTable('Enderecos', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'clientes',
+          model: 'Clientes',
           key: 'id'
         },
         onUpdate: 'CASCADE',
@@ -34,7 +34,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'bairros',
+          model: 'Bairros',
           key: 'id'
         }
       },
@@ -42,7 +42,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'cidades',
+          model: 'Cidades',
           key: 'id'
         }
       },
@@ -50,7 +50,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'estados',
+          model: 'Estados',
           key: 'id'
         }
       },
@@ -69,6 +69,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('enderecos');
+    await queryInterface.dropTable('Enderecos');
   }
 };

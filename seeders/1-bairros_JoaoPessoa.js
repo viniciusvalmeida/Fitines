@@ -35,7 +35,7 @@ module.exports = {
     //   updatedAt: new Date()
     // }])
 
-    return queryInterface.bulkInsert('bairros', bairros)
+    return queryInterface.bulkInsert('Bairros', bairros)
   },
 
   async down (queryInterface, Sequelize) {
@@ -45,6 +45,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     await queryInterface.bulkDelete('bairros', null, {})
+     await queryInterface.bulkDelete('Bairros', null, {})
   }
 };
