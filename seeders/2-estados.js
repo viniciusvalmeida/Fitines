@@ -14,7 +14,7 @@ module.exports = {
     */
 
     await queryInterface.bulkInsert('Estados', [{
-      nome: 'PB'
+      Nome: 'PB'
     }])
   },
 

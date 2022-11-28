@@ -4,12 +4,7 @@ const sequelize = require('../config/sequelize')
 const Bairros = sequelize.define(
   "Bairros",
   {
-    nome: DataTypes.STRING
-  },
-
-  {
-    freezeTableName: true,
-    tableName: 'bairros'
+    Nome: DataTypes.STRING
   }
 )
 

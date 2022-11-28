@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      clienteId: {
+      ClienteId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -19,18 +19,18 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      logradouro: {
+      Logradouro: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      numero: {
+      Numero: {
         type: Sequelize.STRING(4),
         allowNull: false,
       },
-      complemento: {
+      Complemento: {
         type: Sequelize.STRING
       },
-      bairroId: {
+      BairroId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -38,7 +38,7 @@ module.exports = {
           key: 'id'
         }
       },
-      cidadeId: {
+      CidadeId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -46,7 +46,7 @@ module.exports = {
           key: 'id'
         }
       },
-      estadoId: {
+      EstadoId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -54,7 +54,7 @@ module.exports = {
           key: 'id'
         }
       },
-      cep: {
+      Cep: {
         type: Sequelize.STRING(8),
         allowNull: false
       },

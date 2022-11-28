@@ -13,7 +13,7 @@ module.exports = {
      * }], {});
     */
      await queryInterface.bulkInsert('Cidades', [{
-      nome: 'João Pessoa'
+      Nome: 'João Pessoa'
     }])
   },
 

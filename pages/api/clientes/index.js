@@ -1,43 +1,55 @@
-const Clientes = require('../../../models/clientes')
-const Enderecos = require('../../../models/Enderecos')
+const db = require('../../../models')
 
 export default async function clientes(req, res) {
   const reqMethod = req.method
 
   switch (reqMethod) {
     case 'GET':
-      const listaClientes = await Clientes.findAll()
+      const listaClientes = await db.Clientes.findAll({
+        attributes: [
+          'id',
+          'Nome',
+          'Cpf',
+          'Telefone'
+        ],
+        include: {
+          model: db.Sexo,
+          attributes: [
+            'Sexo'
+          ]
+        }
+      })
       
       res.status(200).json(listaClientes)      
     break;
   
     case 'POST':
-      const { nome, sexoId, cpf, telefone } = req.body
-      const { logradouro, numero, bairroId, complemento, cidadeId, estadoId, cep } = req.body
+      const { Nome, SexoId, Cpf, Telefone } = req.body
+      const { Logradouro, Numero, BairroId, Complemento, CidadeId, EstadoId, Cep } = req.body
       
       const cliente = {
-        nome,
-        sexoId,
-        cpf,
-        telefone
+        Nome,
+        SexoId,
+        Cpf,
+        Telefone
       }
 
-      const { id } = await Clientes.create(cliente)
+      const { id } = await db.Clientes.create(cliente)
       
       const endereco = {
-        clienteId: id,
-        logradouro,
-        numero,
-        bairroId,
-        complemento,
-        cidadeId,
-        estadoId,
-        cep
+        ClienteId: id,
+        Logradouro,
+        Numero,
+        BairroId,
+        Complemento,
+        CidadeId,
+        EstadoId,
+        Cep
       }
 
-      await Enderecos.create(endereco)
+      await db.Enderecos.create(endereco)
         
-      res.status(200).json({ message: `Parabéns ${nome}! Agora você faz parte da família FITINES!` })        
+      res.status(200).json({ message: `Parabéns ${Nome}! Agora você faz parte da família FITINES!` })        
     break;
 
     default:

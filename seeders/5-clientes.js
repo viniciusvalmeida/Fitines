@@ -13,10 +13,10 @@ module.exports = {
      * }], {});
     */
    await queryInterface.bulkInsert('Clientes', [{
-    nome: 'José da Silva',
-    sexoId: 2,
-    cpf: '99999999999',
-    telefone: '988887777',
+    Nome: 'José da Silva',
+    SexoId: 2,
+    Cpf: '99999999999',
+    Telefone: '988887777',
     createdAt: new Date(),
     updatedAt: new Date(),
    }])

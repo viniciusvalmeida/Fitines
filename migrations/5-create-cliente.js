@@ -9,11 +9,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nome: {
+      Nome: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      sexoId: {
+      SexoId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -21,11 +21,11 @@ module.exports = {
           key: 'id'
         }
       },
-      cpf: {
+      Cpf: {
         type: Sequelize.STRING(11),
         allowNull: false
       },
-      telefone: {
+      Telefone: {
         type: Sequelize.STRING(11),
         allowNull: false
       },

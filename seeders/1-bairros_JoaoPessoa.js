@@ -4,7 +4,7 @@ const bairrosJson = require('../config/bairros.json')
 
 const bairros = bairrosJson.map(bairro => {
   return {
-    nome: bairro.Nome
+    Nome: bairro.Nome
   }
 })
 

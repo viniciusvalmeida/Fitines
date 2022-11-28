@@ -2,19 +2,17 @@
 
 const fs = require('fs');
 const path = require('path');
-const Sequelize = require('sequelize');
-const process = require('process');
+const {Sequelize, DataTypes, BelongsTo} = require('sequelize');
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require('../config/config.js')[env];
+const sequelize = require('../config/sequelize');
 const db = {};
 
-let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+const Clientes = require('./Clientes.js');
+const Sexo = require('./sexo.js');
+const Enderecos = require('./Enderecos.js');
+const Bairros = require('./Bairros');
+const Cidades = require('./Cidades');
+const Estados = require('./Estados');
 
 fs
   .readdirSync(__dirname)
@@ -22,7 +20,7 @@ fs
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
   .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
+    const model = require(path.join(__dirname, file))(sequelize, DataTypes);
     db[model.name] = model;
   });
 
@@ -34,5 +32,16 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+db.Bairros = Bairros
+db.Cidades = Cidades
+db.Estados = Estados
+db.Clientes = Clientes
+db.Sexo = Sexo
+db.Enderecos = Enderecos
+
+db.Clientes.belongsTo(db.Sexo)
+db.Enderecos.hasOne(db.Bairros)
+db.Enderecos.belongsTo(db.Clientes)
 
 module.exports = db;

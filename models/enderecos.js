@@ -4,19 +4,14 @@ const sequelize = require('../config/sequelize')
 const Enderecos = sequelize.define(
     "Enderecos",
     {
-        clienteId: DataTypes.INTEGER,
-        logradouro: DataTypes.STRING,
-        numero: DataTypes.STRING(4),
-        bairroId: DataTypes.INTEGER,
-        complemento: DataTypes.STRING,
-        cidadeId: DataTypes.INTEGER,
-        estadoId: DataTypes.INTEGER,
-        cep: DataTypes.STRING(8),
-    },
-
-    {
-        tableName: 'enderecos',
-        freezeTableName: true
+        ClienteId: DataTypes.INTEGER,
+        Logradouro: DataTypes.STRING,
+        Numero: DataTypes.STRING(4),
+        BairroId: DataTypes.INTEGER,
+        Complemento: DataTypes.STRING,
+        CidadeId: DataTypes.INTEGER,
+        EstadoId: DataTypes.INTEGER,
+        Cep: DataTypes.STRING(8),
     }
 )
 

@@ -4,10 +4,10 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Sexo', [{
-      sexo: 'Feminino'
+      Sexo: 'Feminino'
     },
     {
-      sexo: 'Masculino'
+      Sexo: 'Masculino'
     }
   ])
   },

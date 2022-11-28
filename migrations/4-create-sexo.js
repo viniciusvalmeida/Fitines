@@ -10,7 +10,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      sexo: {
+      Sexo: {
         type: Sequelize.STRING,
         allowNull: false
       } 
