@@ -41,7 +41,10 @@ db.Sexo = Sexo
 db.Enderecos = Enderecos
 
 db.Clientes.belongsTo(db.Sexo)
-db.Enderecos.hasOne(db.Bairros)
-db.Enderecos.belongsTo(db.Clientes)
+db.Clientes.hasOne(db.Enderecos)
+
+db.Enderecos.belongsTo(db.Bairros)
+db.Enderecos.belongsTo(db.Cidades)
+db.Enderecos.belongsTo(db.Estados)
 
 module.exports = db;

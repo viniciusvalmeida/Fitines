@@ -3,7 +3,9 @@ const db = require('../../../models')
 export default async function cliente(req, res) {
   const reqMethod = req.method
   const { id } = req.query
-  const cliente = await db.Clientes.findByPk(id)
+  const cliente = await db.Clientes.findByPk(id, {
+    attributes: ["id", "Nome", "Cpf", "Telefone"]
+  })
 
   switch (reqMethod) {
     case 'GET':
