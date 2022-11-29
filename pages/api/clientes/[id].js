@@ -11,11 +11,37 @@ export default async function cliente(req, res) {
     break;
 
     case 'DELETE':
-      await db.Clientes.destroy({
-        where: { id: id }
-      })
+      await cliente.destroy()
 
       res.status(200).json({ message: `Cliente ${cliente.Nome} excluído com sucesso!` })
+    break;
+
+    case 'PUT':
+      const { Nome, SexoId, Cpf, Telefone } = req.body
+    
+      const clienteUptd = {
+        Nome,
+        SexoId,
+        Cpf,
+        Telefone
+      }
+
+      try {
+        await db.Clientes.update(
+          clienteUptd,
+          {
+            where: { 
+              id: id
+            }
+          }
+        )
+
+        res.status(200).json({ message: 'Cliente Atualizado com sucesso' })
+        
+      } catch (e) {
+        res.status(304).json({ error: e })
+      }
+      
     break;
   
     default:
