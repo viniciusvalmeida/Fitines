@@ -12,9 +12,7 @@ module.exports = {
                 BairroId: 2,
                 CidadeId: 1,
                 EstadoId: 1,
-                Cep: "58076410",
-                createdAt: new Date(),
-                updatedAt: new Date(),
+                Cep: "58076410"
             },
         ]);
     },
