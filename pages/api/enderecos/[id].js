@@ -1,4 +1,4 @@
-const db = require('../../../models')
+const Enderecos = require('../../../models/Enderecos')
 
 export default async function endereco(req,res){
   const { id } = req.query
@@ -18,7 +18,7 @@ export default async function endereco(req,res){
             Cep,
           }
 
-          await db.Enderecos.update(
+          await Enderecos.update(
             enderecoUpdt,
             {
               where: { ClienteId: id }

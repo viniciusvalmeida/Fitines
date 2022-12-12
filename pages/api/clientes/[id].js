@@ -1,9 +1,9 @@
-const db = require('../../../models')
+const Clientes = require('../../../models/Clientes')
 
 export default async function cliente(req, res) {
   const reqMethod = req.method
   const { id } = req.query
-  const cliente = await db.Clientes.findByPk(id, {
+  const cliente = await Clientes.findByPk(id, {
     attributes: ["id", "Nome", "Cpf", "Telefone"]
   })
 
@@ -29,7 +29,7 @@ export default async function cliente(req, res) {
       }
 
       try {
-        await db.Clientes.update(
+        await Clientes.update(
           clienteUptd,
           {
             where: { 
