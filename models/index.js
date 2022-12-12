@@ -8,7 +8,7 @@ const sequelize = require('../config/sequelize');
 const db = {};
 
 const Clientes = require('./Clientes.js');
-const Sexo = require('./sexo.js');
+const Sexo = require('./Sexo.js');
 const Enderecos = require('./Enderecos.js');
 const Bairros = require('./Bairros');
 const Cidades = require('./Cidades');
