@@ -20,31 +20,10 @@ const bairros = bairrosJson.map(bairro => {
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
-    // return queryInterface.bulkInsert('bairros', [{
-    //   nome: 'teste',
-    //   createdAt: new Date(),
-    //   updatedAt: new Date()
-    // }])
-
-    return queryInterface.bulkInsert('Bairros', bairros)
+    await queryInterface.bulkInsert('Bairros', bairros)
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
      await queryInterface.bulkDelete('Bairros', null, {})
   }
 };
