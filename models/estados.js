@@ -4,7 +4,16 @@ const sequelize = require('../config/sequelize')
 const Estados = sequelize.define(
   "Estados",
   {
-    Nome: DataTypes.STRING
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    Nome: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }
 )
 

@@ -4,7 +4,16 @@ const sequelize = require("../config/sequelize");
 const Sexo = sequelize.define(
     "Sexo",
     {
-        Sexo: DataTypes.STRING,
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true
+          },
+          Sexo: {
+            type: DataTypes.STRING,
+            allowNull: false
+          } 
     },
 
     {
