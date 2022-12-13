@@ -54,22 +54,15 @@ export default async function cliente(req, res) {
     case 'PUT':
       const { Nome, SexoId, Cpf, Telefone } = req.body
     
-      const clienteUptd = {
+      cliente.set({
         Nome,
         SexoId,
         Cpf,
         Telefone
-      }
+      })
 
       try {
-        await Clientes.update(
-          clienteUptd,
-          {
-            where: { 
-              id: id
-            }
-          }
-        )
+        await cliente.save()
 
         res.status(200).json({ message: 'Cliente Atualizado com sucesso' })
         
