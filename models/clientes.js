@@ -6,10 +6,32 @@ const Enderecos = require("./Enderecos");
 const Clientes = sequelize.define(
     "Clientes",
     {
-        Nome: DataTypes.STRING,
-        SexoId: DataTypes.INTEGER,
-        Cpf: DataTypes.STRING(11),
-        Telefone: DataTypes.STRING(11),
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+        },
+        Nome: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        SexoId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+            model: 'Sexo',
+            key: 'id'
+            }
+        },
+        Cpf: {
+            type: DataTypes.STRING(11),
+            allowNull: false
+        },
+        Telefone: {
+            type: DataTypes.STRING(11),
+            allowNull: false
+        }
     }
 );
 
