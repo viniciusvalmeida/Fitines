@@ -1,10 +1,43 @@
 const Clientes = require('../../../models/Clientes')
+const Sexo = require('../../../models/Sexo')
+const Enderecos = require('../../../models/Enderecos')
+const Bairros = require('../../../models/Bairros')
+const Cidades = require('../../../models/Cidades')
+const Estados = require('../../../models/Estados')
 
 export default async function cliente(req, res) {
   const reqMethod = req.method
   const { id } = req.query
   const cliente = await Clientes.findByPk(id, {
-    attributes: ["id", "Nome", "Cpf", "Telefone"]
+    attributes: ["id", "Nome", "Cpf", "Telefone"],
+    include: [
+      {
+        model: Sexo,
+        attributes: ["Sexo"],
+      },
+      {
+        model: Enderecos,
+        attributes: [
+          "Logradouro",
+          "Numero",
+          "Complemento",
+          "Cep",
+        ],
+        include: [{
+          model: Bairros,
+          attributes: [ 'Nome' ]
+        },
+        {
+          model: Cidades,
+          attributes: [ 'Nome' ]
+        },
+        {
+          model: Estados,
+          attributes: [ 'Nome' ]
+        }
+      ]
+      },
+    ],
   })
 
   switch (reqMethod) {
