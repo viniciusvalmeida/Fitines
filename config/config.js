@@ -1,4 +1,4 @@
-//require('dotenv').config({ path: './.env.local' })
+require('dotenv').config({ path: './.env.local' })
 
 module.exports = {
     dialect: process.env.NEXT_PUBLIC_DB_DIALECT,
