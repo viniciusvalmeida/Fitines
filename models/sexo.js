@@ -17,7 +17,8 @@ const Sexo = sequelize.define(
     },
 
     {
-        freezeTableName: true
+        freezeTableName: true,
+        timestamps: false
     }
 );
 

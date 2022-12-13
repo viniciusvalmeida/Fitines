@@ -14,6 +14,10 @@ const Bairros = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false
     }
+  },
+  
+  {
+    timestamps: false
   }
 )
 
