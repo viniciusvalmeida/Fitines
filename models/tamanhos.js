@@ -21,4 +21,6 @@ const Tamanhos = sequelize.define(
   }
 )
 
+Tamanhos.sync()
+
 module.exports = Tamanhos

@@ -32,10 +32,13 @@ const Clientes = sequelize.define(
             type: DataTypes.STRING(11),
             allowNull: false
         }
+    
     }
 );
 
 Clientes.belongsTo(Sexo)
 Clientes.hasOne(Enderecos)
+
+Clientes.sync()
 
 module.exports = Clientes;

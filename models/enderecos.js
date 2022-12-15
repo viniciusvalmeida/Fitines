@@ -57,4 +57,6 @@ Enderecos.belongsTo(Bairros)
 Enderecos.belongsTo(Cidades)
 Enderecos.belongsTo(Estados)
 
+Enderecos.sync()
+
 module.exports = Enderecos

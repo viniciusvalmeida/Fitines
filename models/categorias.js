@@ -21,4 +21,6 @@ const Categorias = sequelize.define(
   }
 )
 
+Categorias.sync()
+
 module.exports = Categorias

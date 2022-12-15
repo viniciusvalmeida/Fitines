@@ -6,5 +6,6 @@ module.exports = {
     username: process.env.NEXT_PUBLIC_DB_USER,
     password: process.env.NEXT_PUBLIC_DB_PASSWORD,
     database: process.env.NEXT_PUBLIC_DB_NAME,
+    timestamps: true,
     logging: false
 }

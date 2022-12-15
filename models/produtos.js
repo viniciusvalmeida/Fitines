@@ -1,5 +1,8 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require('../config/sequelize')
+const sequelize = require('../config/sequelize');
+const Categorias = require("./categorias");
+const Sexo = require("./Sexo");
+const Tamanhos = require("./Tamanhos");
 
 const Produtos = sequelize.define(
   "Produtos",
@@ -49,6 +52,8 @@ const Produtos = sequelize.define(
   }
 )
 
-Produtos.belongsTo(['Sexo', 'Categorias', 'Tamanhos'])
+Produtos.belongsTo([Sexo, Categorias, Tamanhos])
+
+Produtos.sync()
 
 module.exports = Produtos

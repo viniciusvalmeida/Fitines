@@ -21,4 +21,6 @@ const Cidades = sequelize.define(
   }
 )
 
+Cidades.sync()
+
 module.exports = Cidades

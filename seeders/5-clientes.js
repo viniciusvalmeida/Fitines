@@ -7,7 +7,9 @@ module.exports = {
     Nome: 'José da Silva',
     SexoId: 2,
     Cpf: '99999999999',
-    Telefone: '988887777'
+    Telefone: '988887777',
+    createdAt: new Date(),
+    updatedAt: new Date()
    }])
   },
 

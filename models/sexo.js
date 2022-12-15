@@ -22,4 +22,6 @@ const Sexo = sequelize.define(
     }
 );
 
+Sexo.sync()
+
 module.exports = Sexo;
