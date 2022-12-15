@@ -45,10 +45,6 @@ const Produtos = sequelize.define(
         key: 'id'
       }
     }
-  },
-  
-  {
-    timestamps: false
   }
 )
 
