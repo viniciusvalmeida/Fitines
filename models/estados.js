@@ -21,6 +21,4 @@ const Estados = sequelize.define(
   }
 )
 
-Estados.sync()
-
 module.exports = Estados

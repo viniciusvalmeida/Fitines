@@ -21,6 +21,4 @@ const Bairros = sequelize.define(
   }
 )
 
-Bairros.sync()
-
 module.exports = Bairros

@@ -39,6 +39,4 @@ const Clientes = sequelize.define(
 Clientes.belongsTo(Sexo)
 Clientes.hasOne(Enderecos)
 
-Clientes.sync()
-
 module.exports = Clientes;

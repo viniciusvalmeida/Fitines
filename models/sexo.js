@@ -20,8 +20,6 @@ const Sexo = sequelize.define(
         freezeTableName: true,
         timestamps: false
     }
-);
-
-Sexo.sync()
+)
 
 module.exports = Sexo;

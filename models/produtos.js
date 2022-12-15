@@ -52,8 +52,8 @@ const Produtos = sequelize.define(
   }
 )
 
-Produtos.belongsTo([Sexo, Categorias, Tamanhos])
-
-Produtos.sync()
+Produtos.belongsTo(Sexo)
+Produtos.belongsTo(Categorias)
+Produtos.belongsTo(Tamanhos)
 
 module.exports = Produtos
