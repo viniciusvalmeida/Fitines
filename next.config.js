@@ -1,6 +1,4 @@
-const associations = require('./config/associations')
-
-associations()
+require('./config/associations')()
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

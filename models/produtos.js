@@ -48,8 +48,4 @@ const Produtos = sequelize.define(
   }
 )
 
-Produtos.belongsTo(Sexo)
-Produtos.belongsTo(Categorias)
-Produtos.belongsTo(Tamanhos)
-
 module.exports = Produtos

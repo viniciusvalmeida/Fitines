@@ -1,7 +1,5 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/sequelize");
-const Sexo = require("./Sexo");
-const Enderecos = require("./Enderecos");
 
 const Clientes = sequelize.define(
     "Clientes",
@@ -35,8 +33,5 @@ const Clientes = sequelize.define(
     
     }
 );
-
-Clientes.belongsTo(Sexo)
-Clientes.hasOne(Enderecos)
 
 module.exports = Clientes;

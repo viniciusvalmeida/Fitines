@@ -1,8 +1,5 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../config/sequelize')
-const Bairros = require('./Bairros')
-const Cidades = require('./Cidades')
-const Estados = require('./Estados')
 
 const Enderecos = sequelize.define(
     "Enderecos",
@@ -52,9 +49,5 @@ const Enderecos = sequelize.define(
         }
     }
 )
-
-Enderecos.belongsTo(Bairros)
-Enderecos.belongsTo(Cidades)
-Enderecos.belongsTo(Estados)
 
 module.exports = Enderecos
