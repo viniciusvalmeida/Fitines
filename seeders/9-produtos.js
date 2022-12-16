@@ -8,7 +8,9 @@ module.exports = {
       Preco: 79.90,
       SexoId: 1,
       CategoriaId: 1,
-      TamanhoId: 3
+      TamanhoId: 3,
+      createdAt: new Date(),
+      updatedAt: new Date()
     }])
   },
 
