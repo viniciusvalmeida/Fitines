@@ -10,7 +10,6 @@ const Estados = require('../models/estados')
 const Produtos = require('../models/produtos')
 const Tamanhos = require('../models/tamanhos')
 
-
 async function dbSync(){
   await sequelize.sync()
 }

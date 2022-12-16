@@ -1,4 +1,4 @@
-require('./config/associations')
+require('./config/dbSync')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
