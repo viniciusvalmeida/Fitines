@@ -12,18 +12,7 @@ const Tamanhos = require('../models/tamanhos')
 
 
 async function dbSync(){
-  Clientes.belongsTo(Sexo)
-  Clientes.hasOne(Enderecos)
-  
-  Enderecos.belongsTo(Bairros)
-  Enderecos.belongsTo(Cidades)
-  Enderecos.belongsTo(Estados)
-  
-  Produtos.belongsTo(Sexo)
-  Produtos.belongsTo(Categorias)
-  Produtos.belongsTo(Tamanhos)
-  
   await sequelize.sync()
 }
 
-module.exports = dbSync
+module.exports = dbSync()
