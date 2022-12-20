@@ -7,10 +7,10 @@ const Carrinhos = sequelize.define(
   'Carrinhos',
   {
     id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
-      primaryKey: true,
-      type: DataTypes.INTEGER
+      primaryKey: true
     },
     ClienteId: {
       type: DataTypes.INTEGER,
@@ -34,6 +34,9 @@ const Carrinhos = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     }
+  },
+  {
+    freezeTableName: true
   }
 )
 
