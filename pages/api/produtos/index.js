@@ -1,7 +1,7 @@
 const Produtos = require('../../../models/produtos')
 const Categorias = require('../../../models/categorias')
-const Tamanhos = require('../../../models/tamanhos')
-const Sexo = require('../../../models/sexo')
+const Tamanhos = require('../../../models/Tamanhos')
+const Sexo = require('../../../models/Sexo')
 
 export default async function produtos(req, res){
   const reqMethod = req.method
@@ -31,8 +31,6 @@ export default async function produtos(req, res){
         } catch (e) {
           res.status(304).json({ error: e })
         }
-
-      res.status(200).json(listaProdutos)
       break;
 
     case 'POST':
