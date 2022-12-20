@@ -10,11 +10,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      PedidoId: {
+      CarrinhoId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'Pedidos',
+          model: 'Carrinho',
           key: 'id'
         }
       },
@@ -22,6 +22,16 @@ module.exports = {
         type: Sequelize.FLOAT,
         allowNull: false
       },
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: new Date()
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: new Date()
+      }
    })
   },
 
