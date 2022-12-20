@@ -85,7 +85,7 @@ export default async function clientes(req, res) {
             break;
 
         default:
-            res.status(200).json({ message: "Welcome to API Routes" });
+            res.status(200).json({ message: "Welcome to Cliente API Routes" });
             break;
     }
 }
