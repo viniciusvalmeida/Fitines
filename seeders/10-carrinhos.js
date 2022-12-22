@@ -3,18 +3,14 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Produtos', [{
-      Nome: 'BIKINI AZUL',
-      Preco: 79.90,
-      SexoId: 1,
-      CategoriaId: 1,
-      TamanhoId: 3,
+    await queryInterface.bulkInsert('Carrinhos', [{
+      ClienteId: 1,
       createdAt: new Date(),
       updatedAt: new Date()
     }])
   },
 
   async down (queryInterface, Sequelize) {
-     await queryInterface.bulkDelete('Produtos', null, {})
+     await queryInterface.bulkDelete('Carrinhos', null, {})
   }
 };
