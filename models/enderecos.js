@@ -53,8 +53,4 @@ const Enderecos = sequelize.define(
     }
 )
 
-Enderecos.belongsTo(Bairros)
-Enderecos.belongsTo(Cidades)
-Enderecos.belongsTo(Estados)
-
 module.exports = Enderecos

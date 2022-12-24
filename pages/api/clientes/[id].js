@@ -1,35 +1,30 @@
-const Clientes = require("../../../models/Clientes");
-const Sexo = require("../../../models/Sexo");
-const Enderecos = require("../../../models/Enderecos");
-const Bairros = require("../../../models/Bairros");
-const Cidades = require("../../../models/Cidades");
-const Estados = require("../../../models/Estados");
+import db from "../../../models";
 
 export default async function cliente(req, res) {
     const reqMethod = req.method;
     const { id } = req.query;
 
-    const cliente = await Clientes.findByPk(id, {
+    const cliente = await db.clientes.findByPk(id, {
         attributes: ["id", "Nome", "Cpf", "Telefone"],
         include: [
             {
-                model: Sexo,
+                model: db.sexo,
                 attributes: ["Sexo"],
             },
             {
-                model: Enderecos,
+                model: db.enderecos,
                 attributes: ["Logradouro", "Numero", "Complemento", "Cep"],
                 include: [
                     {
-                        model: Bairros,
+                        model: db.bairros,
                         attributes: ["Nome"],
                     },
                     {
-                        model: Cidades,
+                        model: db.cidades,
                         attributes: ["Nome"],
                     },
                     {
-                        model: Estados,
+                        model: db.estados,
                         attributes: ["Nome"],
                     },
                 ],

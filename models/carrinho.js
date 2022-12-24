@@ -21,26 +21,11 @@ const Carrinhos = sequelize.define(
       },
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE'
-    },
-    ProdutoId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'Produtos',
-        key: 'id'
-      }
-    },
-    Qtd: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
     }
   },
   {
     freezeTableName: true
   }
 )
-
-Carrinhos.belongsTo(Clientes)
-Carrinhos.belongsTo(Produtos)
 
 module.exports = Carrinhos

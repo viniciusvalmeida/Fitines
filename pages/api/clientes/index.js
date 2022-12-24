@@ -1,24 +1,19 @@
-const Clientes = require('../../../models/Clientes')
-const Sexo = require('../../../models/Sexo')
-const Enderecos = require('../../../models/Enderecos')
-const Bairros = require('../../../models/Bairros')
-const Cidades = require('../../../models/Cidades')
-const Estados = require('../../../models/Estados')
+import db from "../../../models"
 
 export default async function clientes(req, res) {
     const reqMethod = req.method;
 
     switch (reqMethod) {
         case "GET":
-            const listaClientes = await Clientes.findAll({
+            const listaClientes = await db.clientes.findAll({
                 attributes: ["id", "Nome", "Cpf", "Telefone"],
                 include: [
                   {
-                    model: Sexo,
+                    model: db.sexo,
                     attributes: ["Sexo"],
                   },
                   {
-                    model: Enderecos,
+                    model: db.enderecos,
                     attributes: [
                       "Logradouro",
                       "Numero",
@@ -26,15 +21,15 @@ export default async function clientes(req, res) {
                       "Cep",
                     ],
                     include: [{
-                      model: Bairros,
+                      model: db.bairros,
                       attributes: [ 'Nome' ]
                     },
                     {
-                      model: Cidades,
+                      model: db.carrinhos,
                       attributes: [ 'Nome' ]
                     },
                     {
-                      model: Estados,
+                      model: db.estados,
                       attributes: [ 'Nome' ]
                     }
                   ]
@@ -64,7 +59,7 @@ export default async function clientes(req, res) {
                 Telefone,
             };
 
-            const { id } = await Clientes.create(cliente);
+            const { id } = await db.clientes.create(cliente);
 
             const endereco = {
                 ClienteId: id,
@@ -77,7 +72,7 @@ export default async function clientes(req, res) {
                 Cep,
             };
 
-            await Enderecos.create(endereco);
+            await db.enderecos.create(endereco);
 
             res.status(200).json({
                 message: `Parabéns ${Nome}! Agora você faz parte da família FITINES!`,

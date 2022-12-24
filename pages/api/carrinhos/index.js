@@ -1,14 +1,12 @@
-const Carrinhos = require('../../../models/carrinho')
-const Clientes = require('../../../models/clientes')
-const Produtos = require('../../../models/produtos')
+import db from "../../../models";
 
 export default async function carrinhos(req,res){
   const reqMethod = req.method
 
   switch (reqMethod) {
     case 'GET':
-      const listaCarrinhos =  await Carrinhos.findAll({
-        include: [Clientes, Produtos]
+      const listaCarrinhos =  await db.carrinhos.findAll({
+        include: [db.clientes]
       })
     
       res.json(listaCarrinhos)
@@ -25,7 +23,7 @@ export default async function carrinhos(req,res){
         Total
       }
 
-      await Carrinhos.create(carrinho)
+      await db.carrinhos.create(carrinho)
 
       res.status(200).json({ message: 'Carrinho criado com sucesso!'})
     break;

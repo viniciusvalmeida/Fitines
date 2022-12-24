@@ -1,24 +1,22 @@
-const Produtos = require('../../../models/produtos')
-const Categorias = require('../../../models/categorias')
-const Tamanhos = require('../../../models/Tamanhos')
-const Sexo = require('../../../models/Sexo')
+import db from "../../../models"
 
 export default async function produto(req, res){
   const reqMethod = req.method
   const { id } = req.query
-  const produto = await Produtos.findByPk(id, {
+
+  const produto = await db.produtos.findByPk(id, {
     attributes: ['id', 'Nome', 'Preco'],
       include: [
         {
-          model: Tamanhos,
+          model: db.tamanhos,
           attributes: ['Nome']
         },
         {
-          model: Sexo,
+          model: db.sexo,
           attributes: ['Sexo']
         },
         {
-          model: Categorias,
+          model: db.categorias,
           attributes: ['Nome']
         }
       ]

@@ -1,7 +1,4 @@
-const Produtos = require('../../../models/produtos')
-const Categorias = require('../../../models/categorias')
-const Tamanhos = require('../../../models/Tamanhos')
-const Sexo = require('../../../models/Sexo')
+import db from "../../../models"
 
 export default async function produtos(req, res){
   const reqMethod = req.method
@@ -9,19 +6,19 @@ export default async function produtos(req, res){
   switch (reqMethod) {
     case 'GET':
         try {
-          const listaProdutos = await Produtos.findAll({
+          const listaProdutos = await db.produtos.findAll({
             attributes: ['id', 'Nome', 'Preco'],
             include: [
               {
-                model: Tamanhos,
+                model: db.tamanhos,
                 attributes: ['Nome']
               },
               {
-                model: Sexo,
+                model: db.sexo,
                 attributes: ['Sexo']
               },
               {
-                model: Categorias,
+                model: db.categorias,
                 attributes: ['Nome']
               }
             ]
@@ -45,7 +42,7 @@ export default async function produtos(req, res){
             TamanhoId
           }
 
-          await Produtos.create(produto)
+          await db.produtos.create(produto)
 
           res.status(200).json({ message: `Produto ${Nome} adicionado` })
         } catch (e) {
