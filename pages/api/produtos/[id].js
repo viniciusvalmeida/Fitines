@@ -36,15 +36,20 @@ export default async function produto(req, res){
         break;
 
       case 'POST':
-          const { Quantidade } = req.body
-          const carrinho = await db.carrinhos.findByPk(1,{
+          const { CarrinhoId, Quantidade } = req.body
+          const carrinho = await db.carrinhos.findByPk(CarrinhoId,{
             include: [{
               model: db.produtos
             }]
           })
-          await produto.addCarrinhos(carrinho, { through: {Quantidade}})
+          
+          try {
+            await produto.addCarrinho(carrinho, { through: {Quantidade}})
 
-          res.status(200).json(carrinho)
+            res.status(200).json(carrinho)
+          } catch (e) {
+            res.status(304).json({ error: e })
+          }
 
       break;
     
