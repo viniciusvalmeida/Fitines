@@ -34,6 +34,19 @@ export default async function produto(req, res){
             res.status(302).json({ error: e })
           }
         break;
+
+      case 'POST':
+          const { Quantidade } = req.body
+          const carrinho = await db.carrinhos.findByPk(1,{
+            include: [{
+              model: db.produtos
+            }]
+          })
+          await produto.addCarrinhos(carrinho, { through: {Quantidade}})
+
+          res.status(200).json(carrinho)
+
+      break;
     
       case 'DELETE':
           try {

@@ -1,7 +1,5 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/sequelize");
-const Enderecos = require("./Enderecos");
-const Sexo = require("./Sexo");
 
 const Clientes = sequelize.define(
     "Clientes",

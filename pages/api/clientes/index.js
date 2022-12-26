@@ -25,7 +25,7 @@ export default async function clientes(req, res) {
                       attributes: [ 'Nome' ]
                     },
                     {
-                      model: db.carrinhos,
+                      model: db.cidades,
                       attributes: [ 'Nome' ]
                     },
                     {

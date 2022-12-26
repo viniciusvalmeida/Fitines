@@ -6,7 +6,7 @@ export default async function carrinhos(req,res){
   switch (reqMethod) {
     case 'GET':
       const listaCarrinhos =  await db.carrinhos.findAll({
-        include: [db.clientes]
+        include: [db.clientes, db.produtos]
       })
     
       res.json(listaCarrinhos)
@@ -14,13 +14,10 @@ export default async function carrinhos(req,res){
       break;
   
     case 'POST':
-      const { ClienteId, ProdutoId, Qtd, Total} = req.body
+      const { ClienteId } = req.body
 
       const carrinho = {
-        ClienteId,
-        ProdutoId,
-        Qtd,
-        Total
+        ClienteId
       }
 
       await db.carrinhos.create(carrinho)
