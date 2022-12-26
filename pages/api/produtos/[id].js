@@ -3,6 +3,13 @@ import db from "../../../models"
 export default async function produto(req, res){
   const reqMethod = req.method
   const { id } = req.query
+  const { CarrinhoId, Quantidade } = req.body
+  
+  const carrinho = await db.carrinhos.findByPk(CarrinhoId,{
+    include: [{
+      model: db.produtos
+    }]
+  })
 
   const produto = await db.produtos.findByPk(id, {
     attributes: ['id', 'Nome', 'Preco'],
@@ -35,14 +42,7 @@ export default async function produto(req, res){
           }
         break;
 
-      case 'POST':
-          const { CarrinhoId, Quantidade } = req.body
-          const carrinho = await db.carrinhos.findByPk(CarrinhoId,{
-            include: [{
-              model: db.produtos
-            }]
-          })
-          
+      case 'POST':          
           try {
             await produto.addCarrinho(carrinho, { through: {Quantidade}})
 
@@ -55,31 +55,27 @@ export default async function produto(req, res){
     
       case 'DELETE':
           try {
-            await produto.destroy()
-            
-            res.status(200).json({ message: 'Produto excluído com sucesso!' })
+            await produto.removeCarrinho(carrinho)
+
+            res.status(200).json({ message: `Produto ${produto.Nome} removido do carrinho!` })
           } catch (e) {
-            res.status(304).json({ error: e })
+            res.status(302).json({ error: e })
           }
       break;
 
       case 'PUT':
-          const { Nome, Preco, SexoId, CategoriaId, TamanhoId } = req.body
-
-          produto.set({
-            Nome,
-            Preco,
-            SexoId,
-            CategoriaId,
-            TamanhoId
-          })
-
           try {
-            await produto.save()
+            carrinho.Produtos.find(item => {
+              if (item.id == produto.id){
+                item.CarrinhosProdutos.Quantidade = Quantidade
+              }
+            })
 
-            res.status(200).json({ message: 'Produto Atualizado!'})
+            await carrinho.save()
+            
+            res.status(200).json(carrinho)
           } catch (e) {
-            res.status(304).json({ error: e })
+            res.status(302).json({ error: e })
           }
       break;
 
