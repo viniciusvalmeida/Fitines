@@ -4,37 +4,27 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.createTable('Carrinho', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
       ClienteId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        primaryKey: true,
         references: {
           model: 'Clientes',
           key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        }
       },
       ProdutoId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        primaryKey: true,
         references: {
           model: 'Produtos',
           key: 'id'
         }
       },
-      Qtd: {
+      Quantidade: {
         type: Sequelize.INTEGER,
         allowNull: false,
-      },
-      Total: {
-        type: Sequelize.FLOAT,
-        allowNull: false
       },
       createdAt: {
         type: Sequelize.DATE,

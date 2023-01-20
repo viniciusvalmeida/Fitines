@@ -11,7 +11,6 @@ import Estados from "./Estados";
 import Produtos from "./produtos";
 import Sexo from "./Sexo";
 import Tamanhos from "./Tamanhos";
-import CarrinhosProdutos from "./carrinhosProdutos";
 
 const db = {}
 
@@ -28,7 +27,6 @@ db.estados = Estados
 db.produtos = Produtos
 db.sexo = Sexo
 db.tamanhos = Tamanhos
-db.carrinhosProdutos = CarrinhosProdutos
 
 db.clientes.belongsTo(db.sexo)
 db.clientes.hasOne(db.enderecos)
@@ -42,9 +40,6 @@ db.produtos.belongsTo(db.categorias)
 db.produtos.belongsTo(db.tamanhos)
 
 db.carrinhos.belongsTo(db.clientes)
-
-db.carrinhos.belongsToMany(db.produtos, { through: db.carrinhosProdutos, uniqueKey: false })
-db.produtos.belongsToMany(db.carrinhos, { through: db.carrinhosProdutos, uniqueKey: false })
 
 db.sequelize.sync()
   .then(() => console.log('DB Sync!!'))

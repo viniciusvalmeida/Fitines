@@ -4,21 +4,31 @@ const sequelize = require('../config/sequelize');
 const Carrinhos = sequelize.define(
   'Carrinhos',
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true
-    },
     ClienteId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      primaryKey: true,
       references: {
         model: 'Clientes',
         key: 'id'
       },
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE'
+    },
+    ProdutoId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: 'Produtos',
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
+    },
+    Quantidade: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     }
   },
   {
