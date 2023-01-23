@@ -6,7 +6,37 @@ export default async function carrinhos(req,res){
   switch (reqMethod) {
     case 'GET':
       const listaCarrinhos =  await db.carrinhos.findAll({
-        include: [db.clientes, db.produtos]
+        attributes: ['Quantidade'],
+        include: [
+          {
+            model: db.clientes,
+            attributes: ['id', 'Nome', 'Cpf', 'Telefone'],
+            include: [
+             {
+              model: db.sexo,
+              attributes: ['Sexo']
+             }
+            ]
+          }, 
+          {
+            model: db.produtos,
+            attributes: ['id', 'Nome', 'Preco'],
+            include: [
+             {
+              model: db.sexo,
+              attributes: ['Sexo']
+             },
+             {
+              model: db.tamanhos,
+              attributes: ['Nome']
+            },
+             {
+              model: db.categorias,
+              attributes: ['Nome']
+             }
+            ]
+          }
+        ]
       })
     
       res.json(listaCarrinhos)
@@ -14,10 +44,12 @@ export default async function carrinhos(req,res){
       break;
   
     case 'POST':
-      const { ClienteId } = req.body
+      const { ClienteId, ProdutoId, Quantidade } = req.body
 
       const carrinho = {
-        ClienteId
+        ClienteId,
+        ProdutoId,
+        Quantidade
       }
 
       await db.carrinhos.create(carrinho)
