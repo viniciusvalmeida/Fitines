@@ -15,7 +15,7 @@ export default async function carrinho (req, res) {
           include: [
             {
               model: db.clientes,
-              attributes: ['id', 'Nome', 'Cpf', 'Telefone'],
+              attributes: ['id', 'Nome'],
               include: [
                 {
                 model: db.sexo,
