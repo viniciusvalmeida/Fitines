@@ -1,6 +1,6 @@
 import db from "../../../../models"
 
-export default async function produtos(req, res){
+export default async function produtosAdmin(req, res){
   const reqMethod = req.method
 
   switch (reqMethod) {

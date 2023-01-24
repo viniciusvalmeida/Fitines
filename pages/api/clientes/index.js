@@ -1,45 +1,9 @@
-import db from "../../../models"
+import db from "../../../models";
 
 export default async function clientes(req, res) {
     const reqMethod = req.method;
 
     switch (reqMethod) {
-        case "GET":
-            const listaClientes = await db.clientes.findAll({
-                attributes: ["id", "Nome", "Cpf", "Telefone"],
-                include: [
-                  {
-                    model: db.sexo,
-                    attributes: ["Sexo"],
-                  },
-                  {
-                    model: db.enderecos,
-                    attributes: [
-                      "Logradouro",
-                      "Numero",
-                      "Complemento",
-                      "Cep",
-                    ],
-                    include: [{
-                      model: db.bairros,
-                      attributes: [ 'Nome' ]
-                    },
-                    {
-                      model: db.cidades,
-                      attributes: [ 'Nome' ]
-                    },
-                    {
-                      model: db.estados,
-                      attributes: [ 'Nome' ]
-                    }
-                  ]
-                  },
-                ],
-            });
-
-            res.status(200).json(listaClientes);
-            break;
-
         case "POST":
             const { Nome, SexoId, Cpf, Telefone } = req.body;
             const {
