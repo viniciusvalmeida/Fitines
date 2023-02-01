@@ -1,16 +1,17 @@
 import sequelize from "../config/sequelize";
 import Sequelize from "sequelize";
 
-import Bairros from "./Bairros";
+import Bairros from "./bairros";
 import Carrinhos from "./carrinho";
 import Categorias from "./categorias";
-import Cidades from "./Cidades";
+import Cidades from "./cidades";
 import Clientes from "./clientes";
-import Enderecos from "./Enderecos";
-import Estados from "./Estados";
+import Enderecos from "./enderecos";
+import Estados from "./estados";
 import Produtos from "./produtos";
-import Sexo from "./Sexo";
-import Tamanhos from "./Tamanhos";
+import Sexo from "./sexo";
+import Tamanhos from "./tamanhos";
+import Vendas from "./vendas"
 
 const db = {}
 
@@ -27,6 +28,7 @@ db.estados = Estados
 db.produtos = Produtos
 db.sexo = Sexo
 db.tamanhos = Tamanhos
+db.vendas = Vendas
 
 db.clientes.belongsTo(db.sexo)
 db.clientes.hasOne(db.enderecos)
@@ -41,6 +43,8 @@ db.produtos.belongsTo(db.tamanhos)
 
 db.carrinhos.belongsTo(db.clientes)
 db.carrinhos.belongsTo(db.produtos)
+
+db.vendas.belongsTo(db.carrinhos)
 
 db.sequelize.sync()
   .then(() => console.log('DB Sync!!'))

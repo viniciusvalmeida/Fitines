@@ -3,28 +3,26 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Carrinhos', {
-      ClienteId: {
-        type: Sequelize.INTEGER,
+    await queryInterface.createTable('Vendas', {
+      id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        references: {
-          model: 'Clientes',
-          key: 'id'
-        }
+        type: Sequelize.INTEGER
       },
-      ProdutoId: {
+      CarrinhoId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        primaryKey: true,
         references: {
-          model: 'Produtos',
-          key: 'id'
-        }
+          model: 'Carrinhos',
+          key: 'ClienteId'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
-      Quantidade: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
+      Total: {
+        type: Sequelize.FLOAT,
+        allowNull: false
       },
       createdAt: {
         type: Sequelize.DATE,
@@ -40,6 +38,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('Carrinhos')
+    await queryInterface.dropTable('Vendas')
   }
 };
