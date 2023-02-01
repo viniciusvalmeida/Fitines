@@ -7,22 +7,16 @@ export default async function carrinho (req, res) {
   switch (reqMethod) {
     case 'GET':
       try {
+        const cliente = await db.clientes.findByPk(id, {
+          attributes: ['Nome']
+        })
+
         const carrinho = await db.carrinhos.findAll({
           where: {
             ClienteId: id
           },
           attributes: ['Quantidade'],
           include: [
-            {
-              model: db.clientes,
-              attributes: ['id', 'Nome'],
-              include: [
-                {
-                model: db.sexo,
-                attributes: ['Sexo']
-                }
-              ]
-            }, 
             {
               model: db.produtos,
               attributes: ['id', 'Nome', 'Preco'],
@@ -44,7 +38,7 @@ export default async function carrinho (req, res) {
           ]
         })
         
-        res.status(200).json(carrinho)        
+        res.status(200).json({Cliente: cliente, Carrinho: carrinho})        
       } catch (e) {
         res.status(304).json({ error: e })
       }
