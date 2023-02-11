@@ -15,8 +15,9 @@ const Vendas = sequelize.define(
       allowNull: false,
       references: {
         model: 'Carrinhos',
-        key: 'ClienteId'
+        key: 'id',
       },
+      
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE'
     },

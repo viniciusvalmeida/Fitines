@@ -5,7 +5,7 @@ export default async function vendas(req, res) {
 
   switch (reqMethod) {
     case 'GET':
-      
+        
       break;
   
     default:
