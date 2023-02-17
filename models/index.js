@@ -44,7 +44,8 @@ db.produtos.belongsTo(db.tamanhos)
 db.carrinhos.belongsTo(db.clientes)
 db.carrinhos.belongsTo(db.produtos)
 
-db.vendas.belongsTo(db.carrinhos)
+db.vendas.belongsTo(db.clientes)
+db.vendas.belongsTo(db.produtos)
 
 db.sequelize.sync()
   .then(() => console.log('DB Sync!!'))

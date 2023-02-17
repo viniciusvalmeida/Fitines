@@ -44,7 +44,7 @@ export default async function carrinhosAdmin(req,res){
       break;
 
     default:
-        res.status(200).json({ message: 'Welcome to Carrinhos API route!' })
+        res.status(200).json({ message: 'Welcome to Carrinhos Admin API route!' })
       break;
   }
 }

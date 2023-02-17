@@ -1,3 +1,4 @@
+import { json } from "sequelize";
 import db from "../../../models";
 
 export default async function carrinhos(req,res){
@@ -44,17 +45,25 @@ export default async function carrinhos(req,res){
       break;
   
     case 'POST':
-      const { ClienteId, ProdutoId, Quantidade } = req.body
 
-      const carrinho = {
-        ClienteId,
-        ProdutoId,
-        Quantidade
+      try {
+        const { ClienteId, ProdutoId, Quantidade } = req.body
+        const {Preco} =  await db.produtos.findByPk(ProdutoId, { attributes: ['Preco'] })
+  
+        const carrinho = {
+          ClienteId,
+          ProdutoId,
+          Quantidade,
+          PrecoUnd: Preco
+        }
+  
+        await db.carrinhos.create(carrinho)
+  
+        res.status(200).json({ message: 'Carrinho criado com sucesso!'})
+        
+      } catch (e) {
+        res.status(302).json({ error: e })
       }
-
-      await db.carrinhos.create(carrinho)
-
-      res.status(200).json({ message: 'Carrinho criado com sucesso!'})
     break;
     default:
         res.status(200).json({ message: 'Welcome to Carrinhos API route!' })

@@ -4,15 +4,10 @@ const sequelize = require('../config/sequelize');
 const Carrinhos = sequelize.define(
   'Carrinhos',
   {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-      allowNull: false
-    },
     ClienteId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      primaryKey: true,
       references: {
         model: 'Clientes',
         key: 'id'
@@ -23,6 +18,7 @@ const Carrinhos = sequelize.define(
     ProdutoId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      primaryKey: true,
       references: {
         model: 'Produtos',
         key: 'id'
@@ -33,6 +29,10 @@ const Carrinhos = sequelize.define(
     Quantidade: {
       type: DataTypes.INTEGER,
       allowNull: false,
+    },
+    PrecoUnd: {
+      type: DataTypes.FLOAT,
+      allowNull: false
     }
   },
   {

@@ -4,28 +4,36 @@ import sequelize from "../config/sequelize";
 const Vendas = sequelize.define(
   "Vendas",
   {
-    id: {
+    ClienteId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      autoIncrement: true,
-      primaryKey: true
-    },
-    CarrinhoId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+      primaryKey: true,
       references: {
-        model: 'Carrinhos',
-        key: 'id',
+        model: 'Clientes',
+        key: 'id'
       },
-      
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE'
     },
-    Total: {
+    ProdutoId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: 'Produtos',
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
+    },
+    Quantidade: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    PrecoUnd: {
       type: DataTypes.FLOAT,
       allowNull: false
     }
-
   }
 )
 

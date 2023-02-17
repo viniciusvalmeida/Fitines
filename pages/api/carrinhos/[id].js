@@ -15,7 +15,7 @@ export default async function carrinho (req, res) {
           where: {
             ClienteId: id
           },
-          attributes: ['id','Quantidade'],
+          attributes: ['id','Quantidade', 'PrecoUnd'],
           include: [
             {
               model: db.produtos,
