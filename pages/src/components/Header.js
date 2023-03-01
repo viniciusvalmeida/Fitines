@@ -1,14 +1,21 @@
-import { Nav, Navbar, NavbarBrand, NavLink } from "reactstrap";
+import Link from "next/link";
+import { Nav, Navbar, NavbarBrand } from "reactstrap";
 
 export default function Header(props) {
     return (
-        <Navbar style={{backgroundColor: 'lightgray'}}>
-            <NavbarBrand href="/">Logo</NavbarBrand>
+        <Navbar style={{ backgroundColor: "lightgray" }}>
+            <Link href="/" className="navbar-brand nav-link link-dark">
+                Logo
+            </Link>
 
             <Nav>
-                <NavLink href="../../produtos" className="text-black">PRODUTOS</NavLink>
+                <Link href="../../produtos" className="nav-link link-dark">
+                    PRODUTOS
+                </Link>
 
-                <NavLink href="../../carrinho" className="text-black">CARRINHO</NavLink>
+                <Link href="../../carrinho" className="nav-link link-dark">
+                    CARRINHO
+                </Link>
             </Nav>
         </Navbar>
     );
