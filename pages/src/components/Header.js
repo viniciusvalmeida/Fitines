@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Nav, Navbar, NavbarBrand } from "reactstrap";
+import { Nav, Navbar } from "reactstrap";
 
 export default function Header(props) {
     return (
         <header>
             <Navbar style={{ backgroundColor: "#E86A13" }} className="d-flex justify-content-around align-content-center">
                 <Link href="/" className="navbar-brand nav-link link-dark">
-                    <Image src="/logo 02 branco.png" alt="Logo Fitines" width={200} height={60}/>
+                    <Image src="/logo 02 branco.png" alt="Logo Fitines" width={180} height={60}/>
                 </Link>
                 <Nav className="d-flex align-items-center">
                     <Link href="../../produtos" className="nav-link link-light" style={{fontSize: "large"}}>
