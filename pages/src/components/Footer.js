@@ -4,7 +4,7 @@ export default function Footer(props) {
     return (
         <footer
             style={{ backgroundColor: "lightgrey" }}
-            className="d-flex justify-content-evenly align-items-center"
+            className="d-flex justify-content-evenly align-items-center p-2"
         >
             <div className="w-50 p-2">
                 <h6>Tem alguma dúvida? Entre em contato pelas nossas redes sociais</h6>
