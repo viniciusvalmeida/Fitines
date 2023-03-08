@@ -5,7 +5,7 @@ export default async function produto(req, res){
   const { id } = req.query
 
   const produto = await db.produtos.findByPk(id, {
-    attributes: ['id', 'Nome', 'Preco'],
+    attributes: ['id', 'Nome', 'Preco', 'Imagem'],
       include: [
         {
           model: db.tamanhos,

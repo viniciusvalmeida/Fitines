@@ -7,7 +7,7 @@ export default async function produtos(req, res){
     case 'GET':
         try {
           const listaProdutos = await db.produtos.findAll({
-            attributes: ['id', 'Nome', 'Preco'],
+            attributes: ['id', 'Nome', 'Preco', 'Imagem'],
             include: [
               {
                 model: db.tamanhos,

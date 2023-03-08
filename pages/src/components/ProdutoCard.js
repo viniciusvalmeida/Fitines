@@ -13,7 +13,7 @@ const ProdutoCard = ({ product }) => {
             <Card>
                 <CardBody>
                     <Link href={`/products/${id}`}>
-                        <Image className="card-img-top" src={Imagem} alt="Product" height={500} width={600} />
+                        <Image className="card-img-top" src={`/produtos/${Imagem}`} alt="Product" height={300} width={600} />
                     </Link>
 
                     <Link href={`/products/${id}`}>
