@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { Container } from "reactstrap";
-import Header from "../src/components/Header";
 import ProdutoDetails from "../src/components/ProdutoDetails";
 import { fetchProduto, fetchProdutos } from "../src/services/produtos";
 
