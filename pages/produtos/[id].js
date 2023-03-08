@@ -13,7 +13,7 @@ export const getStaticProps = async (context) => {
     return { props: { product }, revalidate: 10  }
   }
 
-  return { redirect: { destination: '/../produtos', permanent: false } }
+  return { redirect: { destination: '../produtos', permanent: false } }
 }
 
 export const getStaticPaths = async () => {
