@@ -10,7 +10,8 @@ module.exports = {
       CategoriaId: 1,
       TamanhoId: 3,
       createdAt: new Date(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
+      Imagem: "1.jpg"
     },
     {
       Nome: 'SHORT BRASIL',
@@ -19,7 +20,8 @@ module.exports = {
       CategoriaId: 2,
       TamanhoId: 4,
       createdAt: new Date(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
+      Imagem: "2.jpg"
     }
   ])
   },

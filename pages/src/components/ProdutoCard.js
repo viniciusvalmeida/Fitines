@@ -1,3 +1,4 @@
+import Image from "next/image.js";
 import Link from "next/link";
 import React, { useState } from "react";
 import { Button, Card, CardBody, CardSubtitle } from "reactstrap";
@@ -5,12 +6,16 @@ import SuccessToast from "./SuccessToast.js";
 
 const ProdutoCard = ({ product }) => {
     const [toastIsOpen, setToastIsOpen] = useState(false);
-    const { id, Nome, Preco } = product;
+    const { id, Nome, Imagem, Preco } = product;
 
     return (
         <>
             <Card>
                 <CardBody>
+                    <Link href={`/products/${id}`}>
+                        <Image className="card-img-top" src={Imagem} alt="Product" height={500} width={600} />
+                    </Link>
+
                     <Link href={`/products/${id}`}>
                         <h5
                             className="card-title"

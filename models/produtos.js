@@ -41,6 +41,10 @@ const Produtos = sequelize.define(
         model: 'Tamanhos',
         key: 'id'
       }
+    },
+    Imagem: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   }
 )
