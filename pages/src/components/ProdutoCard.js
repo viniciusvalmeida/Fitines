@@ -16,7 +16,7 @@ const ProdutoCard = ({ product }) => {
                         <Image className="card-img-top" src={`/produtos/${Imagem}`} alt="Product" height={300} width={600} />
                     </Link>
 
-                    <Link href={`/products/${id}`}>
+                    <Link href={`/products/${id}`} className="link-dark text-decoration-none">
                         <h5
                             className="card-title"
                             style={{ cursor: "pointer" }}
