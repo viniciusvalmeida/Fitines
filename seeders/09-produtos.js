@@ -11,7 +11,8 @@ module.exports = {
       TamanhoId: 3,
       createdAt: new Date(),
       updatedAt: new Date(),
-      Imagem: "1.jpg"
+      Imagem: "1.jpg",
+      Descricao: "Bikini na cor Azul"
     },
     {
       Nome: 'SHORT BRASIL',
@@ -21,7 +22,8 @@ module.exports = {
       TamanhoId: 4,
       createdAt: new Date(),
       updatedAt: new Date(),
-      Imagem: "2.jpg"
+      Imagem: "2.jpg",
+      Descricao: "Short do Brasil"
     }
   ])
   },
