@@ -15,15 +15,15 @@ export const getStaticProps = async (context) => {
   return { redirect: { destination: '../produtos', permanent: false } }
 }
 
-// export const getStaticPaths = async () => {
-//   const products = await fetchProdutos()
+export const getStaticPaths = async () => {
+  const products = await fetchProdutos()
 
-//   const paths = products.map(product => {
-//     return { params: { id: product.id.toString() } }
-//   })
+  const paths = products.map(product => {
+    return { params: { id: product.id.toString() } }
+  })
 
-//   return { paths, fallback: false }
-// }
+  return { paths, fallback: false }
+}
 
 const Product= (props) => {
   return (
