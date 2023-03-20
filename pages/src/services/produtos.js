@@ -2,17 +2,17 @@
  
  export const fetchProdutos = async () => {
   try {
-    const produtos = await fetch(`${hostAddress}/api/produtos`,{
+    const response = await fetch(`${hostAddress}/api/produtos`,{
       Headers: {
       "Content-Type": "application/json"
     }
     })
-    .then(res => res.json())
+    const produtos = await response.json()
   
     return produtos
     
   } catch (e) {
-    console.log(e)
+    console.log({error: e})
   }
 }
 
@@ -27,7 +27,7 @@ export const fetchProduto = async (id) => {
     return produto
     
   } catch (e) {
-    console.log(e);
+    console.log({error: e});
   }
 }
 
