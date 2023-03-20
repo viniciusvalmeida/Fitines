@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button, Container } from "reactstrap";
 
-export default function Home(props) {
+export default function Home() {
     return (
         <Container className="py-5 text-center">
           <h1 className="mt-5 display-1">
