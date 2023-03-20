@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Container } from "reactstrap";
-import ProdutoDetails from "../src/components/ProdutoDetails";
-import { fetchProduto, fetchProdutos } from "../src/services/produtos";
+import ProdutoDetails from "../../src/components/ProdutoDetails";
+import { fetchProduto, fetchProdutos } from "../../src/services/produtos";
 
 export const getStaticProps = async (context) => {
   const id = context.params.id
@@ -12,7 +12,7 @@ export const getStaticProps = async (context) => {
     return { props: { product }, revalidate: 10  }
   }
 
-  return { redirect: { destination: '../produtos', permanent: false } }
+  return { redirect: { destination: '/produtos', permanent: false } }
 }
 
 export const getStaticPaths = async () => {
