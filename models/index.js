@@ -1,38 +1,53 @@
-'use strict';
+import sequelize from "../config/sequelize";
+import Sequelize from "sequelize";
 
-const fs = require('fs');
-const path = require('path');
-const Sequelize = require('sequelize');
-const process = require('process');
-const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
-const db = {};
+import Bairros from "./bairros";
+import Carrinhos from "./carrinho";
+import Categorias from "./categorias";
+import Cidades from "./cidades";
+import Clientes from "./clientes";
+import Enderecos from "./enderecos";
+import Estados from "./estados";
+import Produtos from "./produtos";
+import Sexo from "./sexo";
+import Tamanhos from "./tamanhos";
+import Vendas from "./vendas"
 
-let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+const db = {}
 
-fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
-  })
-  .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
-  });
+db.Sequelize = Sequelize
+db.sequelize = sequelize
 
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-});
+db.bairros = Bairros
+db.carrinhos = Carrinhos
+db.categorias = Categorias
+db.cidades = Cidades
+db.clientes = Clientes
+db.enderecos = Enderecos
+db.estados = Estados
+db.produtos = Produtos
+db.sexo = Sexo
+db.tamanhos = Tamanhos
+db.vendas = Vendas
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+db.clientes.belongsTo(db.sexo)
+db.clientes.hasOne(db.enderecos)
 
-module.exports = db;
+db.enderecos.belongsTo(db.bairros)
+db.enderecos.belongsTo(db.cidades)
+db.enderecos.belongsTo(db.estados)
+
+db.produtos.belongsTo(db.sexo)
+db.produtos.belongsTo(db.categorias)
+db.produtos.belongsTo(db.tamanhos)
+
+db.carrinhos.belongsTo(db.clientes)
+db.carrinhos.belongsTo(db.produtos)
+
+db.vendas.belongsTo(db.clientes)
+db.vendas.belongsTo(db.produtos)
+
+db.sequelize.sync()
+  .then(() => console.log('DB Sync!!'))
+
+export default db
