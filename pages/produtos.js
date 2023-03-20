@@ -1,13 +1,7 @@
-// export default function Produtos(props){
-//   return <h1>PRODUTOS</h1>
-// }
-
-// pages/products.tsx
-
 import Head from "next/head";
 import { Container } from "reactstrap";
-import ProdutosList from "./src/components/ProdutosList";
-import { fetchProdutos } from "./src/services/produtos";
+import ProdutosList from "../src/components/ProdutosList";
+import { fetchProdutos } from "../src/services/produtos";
 
 export const getStaticProps = async () => {
     const products = await fetchProdutos();

@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import Layout from "./src/components/Layout";
+import Layout from "../src/components/Layout";
 
 function MyApp({ Component, pageProps }) {
     return (
