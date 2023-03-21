@@ -13,7 +13,9 @@ const ProductDetails = ({ product }) => {
                     src={`/produtos/${product.Imagem}`}
                     alt={product.Nome}
                     height={500}
-                    width={600}
+                    width={500}
+                    style={{maxWidth: '100%'}}
+                    
                 />
             </Col>
 
