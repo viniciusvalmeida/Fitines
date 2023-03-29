@@ -1,7 +1,15 @@
 import Head from "next/head";
-import { Container, Input, Table } from "reactstrap";
+import { useState } from "react";
+import { Button, Container, Table } from "reactstrap";
 
-const Carrinho = () => {
+const Carrinho = ({product}) => {
+    const [ und, setUnd ] = useState(1)
+
+    const handleUndReduce = () => {
+        und > 1 ? setUnd( und - 1 ) : setUnd(1)
+    }
+    
+
     return (
         <>
             <Head>
@@ -26,14 +34,40 @@ const Carrinho = () => {
                     <tbody>
                         <tr>
                             <td>Produto1</td>
-                            <td>
-                                <Input></Input>
+                            <td className="w-25">
+                                <Button
+                                    onClick={()=>handleUndReduce()}
+                                    className="btn-sm me-3"
+                                >
+                                    -
+                                </Button>
+                                {und}
+                                <Button
+                                    onClick={() => setUnd(und + 1)}
+                                    className="btn-sm ms-3"
+                                >
+                                    +
+                                </Button>
                             </td>
                             <td>R$50</td>
                         </tr>
                         <tr>
                             <td>Produto2</td>
-                            <td>1</td>
+                            <td className="w-25">
+                                <Button
+                                    onClick={()=>handleUndMinor()}
+                                    className="btn-sm me-3"
+                                >
+                                    -
+                                </Button>
+                                {und}
+                                <Button
+                                    onClick={() => setUnd(und + 1)}
+                                    className="btn-sm ms-3"
+                                >
+                                    +
+                                </Button>
+                            </td>
                             <td>R$25.99</td>
                         </tr>
                         <tr>
