@@ -6,19 +6,21 @@ import SuccessToast from "./SuccessToast.js";
 
 const ProdutoCard = ({ product }) => {
     const [toastIsOpen, setToastIsOpen] = useState(false);
-    const [itens, setItens] = useState([])
+    const [produto, setProduto] = useState(product)
     const { id, Nome, Imagem, Preco } = product;
     
     const onClick = () => {
         setToastIsOpen(true);
         setTimeout(() => setToastIsOpen(false), 1000 * 3)
-        setItens(itens => [...itens, product])
+        let prevLocalStorage = JSON.parse(localStorage.getItem('itens'))
+
+        if (prevLocalStorage) {
+            prevLocalStorage.push(produto)
+            localStorage.setItem('itens', JSON.stringify(prevLocalStorage))    
+        } else {
+            localStorage.setItem('itens', JSON.stringify([produto]))
+        }
     }
-    
-    useEffect(() => {
-        localStorage.setItem('itens', JSON.stringify(itens))
-                       
-    },[itens])
 
     return (
         <>
