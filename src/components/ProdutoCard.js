@@ -1,19 +1,31 @@
 import Image from "next/image.js";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card, CardBody, CardSubtitle } from "reactstrap";
 import SuccessToast from "./SuccessToast.js";
 
 const ProdutoCard = ({ product }) => {
     const [toastIsOpen, setToastIsOpen] = useState(false);
+    const [itens, setItens] = useState([])
     const { id, Nome, Imagem, Preco } = product;
+    
+    const onClick = () => {
+        setToastIsOpen(true);
+        setTimeout(() => setToastIsOpen(false), 1000 * 3)
+        setItens(itens => [...itens, product])
+    }
+    
+    useEffect(() => {
+        localStorage.setItem('itens', JSON.stringify(itens))
+                       
+    },[itens])
 
     return (
         <>
             <Card>
                 <CardBody>
                     <Link href={`/produtos/${id}`}>
-                        <Image className="card-img-top" src={`/produtos/${Imagem}`} alt="Product" height={300} width={600} />
+                        <Image className="card-img-top" src={`/produtos/${Imagem}`} alt="Product" height={300} width={600} priority />
                     </Link>
 
                     <Link href={`/produtos/${id}`} className="link-dark text-decoration-none">
@@ -33,10 +45,7 @@ const ProdutoCard = ({ product }) => {
                         color="dark"
                         className="pb-2"
                         block
-                        onClick={() => {
-                            setToastIsOpen(true);
-                            setTimeout(() => setToastIsOpen(false), 1000 * 3);
-                        }}
+                        onClick={onClick}
                     >
                         Adicionar ao Carrinho
                     </Button>
