@@ -11,20 +11,20 @@ const ProdutoCard = ({ product }) => {
     const onClick = () => {
         setToastIsOpen(true);
         setTimeout(() => setToastIsOpen(false), 1000 * 3);
-        const prevLocalStorage = JSON.parse(localStorage.getItem("itens"));
+        const preStorage = JSON.parse(sessionStorage.getItem("itens"));
 
-        if (prevLocalStorage) {
-            prevLocalStorage.push(product);
+        if (preStorage) {
+            preStorage.push(product);
 
-            const itensUnicos = prevLocalStorage.filter(function (a) {
+            const itensUnicos = preStorage.filter(function (a) {
                 return (
                     !this[JSON.stringify(a)] && (this[JSON.stringify(a)] = true)
                 );
             }, Object.create(null));
 
-            localStorage.setItem("itens", JSON.stringify(itensUnicos));
+            sessionStorage.setItem("itens", JSON.stringify(itensUnicos));
         } else {
-            localStorage.setItem("itens", JSON.stringify([product]));
+            sessionStorage.setItem("itens", JSON.stringify([product]));
         }
     };
 
