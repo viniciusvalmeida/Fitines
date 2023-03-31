@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { Button } from "reactstrap";
 
-const CarrinhoItem = ({ product }) => {
+function CarrinhoItem (props) {
     const [und, setUnd] = useState(1);
 
     const handleUndReduce = () => {
         und > 1 ? setUnd(und - 1) : setUnd(1);
     };
+
     return (
         <tr>
-            <td>Produto1</td>
+            {console.log(props)}
+            <td>{props.product.Nome}</td>
             <td className="w-25">
                 <Button
                     onClick={() => handleUndReduce()}
@@ -22,7 +24,7 @@ const CarrinhoItem = ({ product }) => {
                     +
                 </Button>
             </td>
-            <td>R$50</td>
+            <td>R$ {product.Preco}</td>
         </tr>
     );
 };

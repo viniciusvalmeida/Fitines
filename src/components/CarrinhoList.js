@@ -1,7 +1,16 @@
 import { Table } from "reactstrap";
+import { useEffect, useInsertionEffect, useState } from "react";
 import CarrinhoItem from "./CarrinhoItem";
 
-const CarrinhoList = ({ products }) => {
+const CarrinhoList = () => {
+    const [ produtos, setProdutos ] = useState([])
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setProdutos(JSON.parse(sessionStorage.getItem('itens')))
+        }
+    },[])
+
     return (
         <Table className="mb-5 shadow-lg rounded-3 table-hover text-center">
             <thead>
@@ -13,8 +22,9 @@ const CarrinhoList = ({ products }) => {
             </thead>
 
             <tbody>
-                <CarrinhoItem />
-                <CarrinhoItem />
+                {produtos.map((product) => {
+                    <CarrinhoItem product={ product } />;
+                })}
                 <tr>
                     <td></td>
                     <td></td>
