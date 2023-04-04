@@ -22,9 +22,9 @@ const CarrinhoList = () => {
             </thead>
 
             <tbody>
-                {produtos.map((product) => {
-                    <CarrinhoItem product={ product } />;
-                })}
+                {
+                    produtos.map(product => <CarrinhoItem product={product} key={product.id} />) 
+                }
                 <tr>
                     <td></td>
                     <td></td>

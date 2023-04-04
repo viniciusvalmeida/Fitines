@@ -1,7 +1,8 @@
+import Image from "next/image";
 import { useState } from "react";
 import { Button } from "reactstrap";
 
-function CarrinhoItem (props) {
+function CarrinhoItem ({product}) {
     const [und, setUnd] = useState(1);
 
     const handleUndReduce = () => {
@@ -10,8 +11,10 @@ function CarrinhoItem (props) {
 
     return (
         <tr>
-            {console.log(props)}
-            <td>{props.product.Nome}</td>
+            <td>
+                <Image className="me-1" src={`/produtos/${product.Imagem}`} alt={product.Nome} width={70} height={70}/>
+                {product.Nome}
+            </td>
             <td className="w-25">
                 <Button
                     onClick={() => handleUndReduce()}
