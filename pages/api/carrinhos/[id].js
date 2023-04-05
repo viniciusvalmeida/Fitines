@@ -19,7 +19,7 @@ export default async function carrinho (req, res) {
           include: [
             {
               model: db.produtos,
-              attributes: ['id', 'Nome', 'Preco'],
+              attributes: ['id', 'Nome', 'Preco', 'Imagem'],
               include: [
                 {
                 model: db.sexo,
