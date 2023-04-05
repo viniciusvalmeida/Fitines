@@ -27,7 +27,7 @@ function CarrinhoItem ({product}) {
                     +
                 </Button>
             </td>
-            <td>R$ {product.Preco}</td>
+            <td>R$ {(product.Preco* und).toFixed(2)}</td>
         </tr>
     );
 };
