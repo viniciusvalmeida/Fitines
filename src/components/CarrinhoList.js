@@ -3,10 +3,6 @@ import { useEffect, useState } from "react";
 import CarrinhoItem from "./CarrinhoItem";
 import carrinhoSrv from "../services/carrinhoSrv";
 
-const carrinho = (async () => {
-    await carrinhoSrv.getCarrinho()
-})
-
 const CarrinhoList = () => {
     const [ carrinho, setCarrinho ] = useState()
     
@@ -14,9 +10,6 @@ const CarrinhoList = () => {
         carrinhoSrv.getCarrinho().then(res => setCarrinho(res))
     },[])
 
-    
-
-    console.log('Carrinho: ',carrinho);
     return (
         <Table className="mb-5 shadow-lg rounded-3 table-hover text-center">
             <thead>
