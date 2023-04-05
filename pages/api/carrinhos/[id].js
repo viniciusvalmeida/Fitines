@@ -46,13 +46,13 @@ export default async function carrinho (req, res) {
     
     case 'POST':
       try {
-        const { ProdutoId, Quantidade } = req.body
+        const { ProdutoId } = req.body
         const { Preco } = await db.produtos.findByPk(ProdutoId, { attributes: ['Preco'] })
 
         const carrinho = {
           ClienteId: id,
           ProdutoId,
-          Quantidade,
+          Quantidade: 1,
           PrecoUnd: Preco
         }
 

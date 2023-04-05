@@ -3,29 +3,17 @@ import Link from "next/link";
 import { useState } from "react";
 import { Button, Card, CardBody, CardSubtitle } from "reactstrap";
 import SuccessToast from "./SuccessToast.js";
+import carrinhoServ from "../services/carrinhoSrv.js";
 
 const ProdutoCard = ({ product }) => {
     const [toastIsOpen, setToastIsOpen] = useState(false);
     const { id, Nome, Imagem, Preco } = product;
 
-    const onClick = () => {
+    const handleClick = async (id) => {
         setToastIsOpen(true);
         setTimeout(() => setToastIsOpen(false), 1000 * 3);
-        const preStorage = JSON.parse(sessionStorage.getItem("itens"));
-
-        if (preStorage) {
-            preStorage.push(product);
-
-            const itensUnicos = preStorage.filter(function (a) {
-                return (
-                    !this[JSON.stringify(a)] && (this[JSON.stringify(a)] = true)
-                );
-            }, Object.create(null));
-
-            sessionStorage.setItem("itens", JSON.stringify(itensUnicos));
-        } else {
-            sessionStorage.setItem("itens", JSON.stringify([product]));
-        }
+        
+        await carrinhoServ.addProduto(id)   
     };
 
     return (
@@ -63,7 +51,7 @@ const ProdutoCard = ({ product }) => {
                         color="dark"
                         className="pb-2"
                         block
-                        onClick={onClick}
+                        onClick={() => handleClick(id)}
                     >
                         Adicionar ao Carrinho
                     </Button>

@@ -1,7 +1,5 @@
  import db from "../../models";
- 
- const hostAddress = process.env.NEXT_PUBLIC_HOST_ADDRESS
- 
+  
  export const fetchProdutos = async () => {
     
   const listaProdutos = await db.produtos.findAll({
