@@ -1,16 +1,16 @@
 import { Table } from "reactstrap";
-import { useEffect, useInsertionEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CarrinhoItem from "./CarrinhoItem";
+import carrinhoSrv from "../services/carrinhoSrv";
 
 const CarrinhoList = () => {
-    const [ produtos, setProdutos ] = useState([])
-
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            setProdutos(JSON.parse(sessionStorage.getItem('itens')))
-        }
+    const [ carrinho, setCarrinho ] = useState({})
+    
+    useEffect(()=>{
+        carrinhoSrv.getCarrinho().then(res => setCarrinho(res))
     },[])
 
+    // console.log('Carrinho: ',carrinho);
     return (
         <Table className="mb-5 shadow-lg rounded-3 table-hover text-center">
             <thead>
@@ -23,7 +23,7 @@ const CarrinhoList = () => {
 
             <tbody>
                 {
-                    produtos.map(product => <CarrinhoItem product={product} key={product.id} />) 
+                    carrinho.Carrinho.map(cart => <CarrinhoItem product={cart.Produto} key={cart.Produto.id} />) 
                 }
                 <tr>
                     <td></td>
