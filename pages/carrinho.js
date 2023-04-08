@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Header from "../src/components/Header";
 import { Container } from "reactstrap";
 import CarrinhoList from "../src/components/CarrinhoList";
 import carrinhoSrv from "../src/services/carrinhoSrv";
@@ -16,6 +17,8 @@ const Carrinho = ({ carrinho }) => {
                 <meta name="description" content="Meu carrinho de compras" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+
+            <Header />
 
             <Container className="mb-5">
                 <Container className="my-5">
