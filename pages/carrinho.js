@@ -1,8 +1,14 @@
 import Head from "next/head";
 import { Container } from "reactstrap";
 import CarrinhoList from "../src/components/CarrinhoList";
+import carrinhoSrv from "../src/services/carrinhoSrv";
 
-const Carrinho = ({ products }) => {
+export async function getServerSideProps() {
+    const carrinho = await carrinhoSrv.getCarrinho()
+    return { props: { carrinho } }
+}
+
+const Carrinho = ({ carrinho }) => {
     return (
         <>
             <Head>
@@ -15,7 +21,7 @@ const Carrinho = ({ products }) => {
                 <Container className="my-5">
                     <h1>Carrinho</h1>
                 </Container>
-                <CarrinhoList/>
+                <CarrinhoList carrinho={carrinho}/>
             </Container>
         </>
     );
