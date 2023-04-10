@@ -2,14 +2,19 @@ import Image from "next/image";
 import { useState } from "react";
 import { Button } from "reactstrap";
 
-function CarrinhoItem ({product}) {
+function CarrinhoItem ({product, setTotal}) {
+    const { Nome, Imagem, Preco } = product
+
+    // console.log(typeof Preco);
+
     const [und, setUnd] = useState(1)
-    const [ subTotal, setSubTotal ] = useState(product.Preco)
+    const [ subTotal, setSubTotal ] = useState(Preco)
 
     const handleUndReduce = () => {
         if (und > 1) {
             setUnd(u => u - 1)
-            setSubTotal((subTotal - product.Preco).toFixed(2))
+            setSubTotal(subTotal - Preco)
+            setTotal(t => t - Preco)
         } else {
             setUnd(1)
         }
@@ -17,14 +22,15 @@ function CarrinhoItem ({product}) {
 
     const handleUndSum = () => {
         setUnd(u => u + 1)
-        setSubTotal((product.Preco * (und + 1)).toFixed(2))
+        setSubTotal(Preco * (und + 1))
+        setTotal(t => t + subTotal)
     }
 
     return (
         <tr>
             <td>
-                <Image className="me-1" src={`/produtos/${product.Imagem}`} alt={product.Nome} width={70} height={70}/>
-                {product.Nome}
+                <Image className="me-1" src={`/produtos/${Imagem}`} alt={Nome} width={70} height={70}/>
+                {Nome}
             </td>
             <td className="w-25">
                 <Button
