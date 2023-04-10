@@ -7,7 +7,7 @@ export default function Header(props) {
         <header>
             <Navbar style={{ backgroundColor: "#E86A13" }} className="d-flex justify-content-around align-content-center">
                 <Link href="/" className="navbar-brand nav-link link-dark">
-                    <Image src="/logo 02 branco.png" alt="Logo Fitines" width={180} height={60}/>
+                    <Image src="/logo 02 branco.png" alt="Logo Fitines" width={180} height={60} priority/>
                 </Link>
                 <Nav className="d-flex align-items-center">
                     <Link href="../../produtos" className="nav-link link-light" style={{fontSize: "large"}}>

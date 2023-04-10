@@ -1,22 +1,40 @@
 import Image from "next/image.js";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button, Card, CardBody, CardSubtitle } from "reactstrap";
 import SuccessToast from "./SuccessToast.js";
+import carrinhoServ from "../services/carrinhoSrv.js";
 
 const ProdutoCard = ({ product }) => {
     const [toastIsOpen, setToastIsOpen] = useState(false);
     const { id, Nome, Imagem, Preco } = product;
+
+    const handleClick = async (id) => {
+        setToastIsOpen(true);
+        setTimeout(() => setToastIsOpen(false), 1000 * 3);
+        
+        await carrinhoServ.addProduto(id)   
+    };
 
     return (
         <>
             <Card>
                 <CardBody>
                     <Link href={`/produtos/${id}`}>
-                        <Image className="card-img-top" src={`/produtos/${Imagem}`} alt="Product" height={300} width={600} />
+                        <Image
+                            className="card-img-top"
+                            src={`/produtos/${Imagem}`}
+                            alt="Product"
+                            height={300}
+                            width={600}
+                            priority
+                        />
                     </Link>
 
-                    <Link href={`/produtos/${id}`} className="link-dark text-decoration-none">
+                    <Link
+                        href={`/produtos/${id}`}
+                        className="link-dark text-decoration-none"
+                    >
                         <h5
                             className="card-title"
                             style={{ cursor: "pointer" }}
@@ -33,10 +51,7 @@ const ProdutoCard = ({ product }) => {
                         color="dark"
                         className="pb-2"
                         block
-                        onClick={() => {
-                            setToastIsOpen(true);
-                            setTimeout(() => setToastIsOpen(false), 1000 * 3);
-                        }}
+                        onClick={() => handleClick(id)}
                     >
                         Adicionar ao Carrinho
                     </Button>

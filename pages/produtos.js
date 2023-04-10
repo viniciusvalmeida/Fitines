@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Header from "../src/components/Header";
 import { Container } from "reactstrap";
 import ProdutosList from "../src/components/ProdutosList";
 import { fetchProdutos } from "../src/services/produtos";
@@ -11,6 +12,9 @@ export const getStaticProps = async () => {
 const Products = (props) => {
     return (
         <>
+
+            <Header />
+
             <Head>
                 <title>Nossos Produtos</title>
                 <meta
