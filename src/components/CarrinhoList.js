@@ -5,7 +5,7 @@ import { useState } from "react";
 const CarrinhoList = ({ carrinho }) => {
     
     const initialTotalState = carrinho.Carrinho.reduce((acc, item) => {
-        return  acc + item.Produto.Preco
+        return  acc + parseFloat(item.Produto.Preco)
     }, 0)
 
     const [ total, setTotal ] = useState(initialTotalState)
@@ -28,7 +28,7 @@ const CarrinhoList = ({ carrinho }) => {
                     <td></td>
                     <td></td>
                     <td colSpan={3} className="fw-bold">
-                        TOTAL: R${total}
+                        TOTAL: R${total.toFixed(2)}
                     </td>
                 </tr>
             </tbody>

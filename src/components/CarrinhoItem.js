@@ -5,15 +5,13 @@ import { Button } from "reactstrap";
 function CarrinhoItem ({product, setTotal}) {
     const { Nome, Imagem, Preco } = product
 
-    // console.log(typeof Preco);
-
     const [und, setUnd] = useState(1)
     const [ subTotal, setSubTotal ] = useState(Preco)
 
     const handleUndReduce = () => {
         if (und > 1) {
             setUnd(u => u - 1)
-            setSubTotal(subTotal - Preco)
+            setSubTotal((subTotal - Preco).toFixed(2))
             setTotal(t => t - Preco)
         } else {
             setUnd(1)
@@ -22,8 +20,8 @@ function CarrinhoItem ({product, setTotal}) {
 
     const handleUndSum = () => {
         setUnd(u => u + 1)
-        setSubTotal(Preco * (und + 1))
-        setTotal(t => t + subTotal)
+        setSubTotal((Preco * (und + 1)).toFixed(2))
+        setTotal(t => t + parseFloat(Preco))
     }
 
     return (
