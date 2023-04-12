@@ -12,9 +12,6 @@ export const getStaticProps = async () => {
 const Products = (props) => {
     return (
         <>
-
-            <Header />
-
             <Head>
                 <title>Nossos Produtos</title>
                 <meta
@@ -23,6 +20,8 @@ const Products = (props) => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            
+            <Header />
 
             <Container className="mb-5">
                 <h1 className="my-5">Nossos Produtos</h1>

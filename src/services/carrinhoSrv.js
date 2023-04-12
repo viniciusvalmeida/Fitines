@@ -8,7 +8,10 @@ const carrinhoServ = {
   },
 
   getCarrinho: async () => {
-     const carrinho = fetch(`${process.env.NEXT_PUBLIC_HOST_ADDRESS}/api/carrinhos/1`).then(res => res.json())
+     const res = await fetch(`${process.env.NEXT_PUBLIC_HOST_ADDRESS}/api/carrinhos/1`)
+     
+     const carrinho = await res.json()
+     
      return carrinho
   }
 }
