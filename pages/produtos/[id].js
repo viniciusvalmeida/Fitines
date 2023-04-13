@@ -3,6 +3,7 @@ import Header from "../../src/components/Header";
 import { Container } from "reactstrap";
 import ProdutoDetails from "../../src/components/ProdutoDetails";
 import { fetchProduto, fetchProdutos } from "../../src/services/produtos";
+import Footer from "../../src/components/Footer";
 
 export const getStaticProps = async (context) => {
     const id = context.params.id;
@@ -28,10 +29,10 @@ export const getStaticPaths = async () => {
 
 const Product = (props) => {
     return (
-        <>
+        <div className="d-flex flex-column min-vh-100">
             <Head>
                 <title>{props.product.Nome}</title>
-                <meta name="description" content="Produtos FitInês" />
+                <meta name="description" content={props.product.Descricao} />
                 <meta charSet="utf-8"></meta>
                 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
                 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
@@ -43,21 +44,14 @@ const Product = (props) => {
 
             <Header />
 
-            <div>
-                <Head>
-                    <title>{props.product.Nome}</title>
-                    <meta
-                        name="description"
-                        content={props.product.Descricao}
-                    />
-                    <link rel="icon" href="/favicon.ico" />
-                </Head>
-
+            <main className="flex-grow-1">
                 <Container className="mt-5">
                     <ProdutoDetails product={props.product} />
                 </Container>
-            </div>
-        </>
+            </main>
+
+            <Footer />
+        </div>
     );
 };
 
