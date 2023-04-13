@@ -3,6 +3,7 @@ import Header from "../src/components/Header";
 import { Container } from "reactstrap";
 import ProdutosList from "../src/components/ProdutosList";
 import { fetchProdutos } from "../src/services/produtos";
+import Footer from "../src/components/Footer";
 
 export const getStaticProps = async () => {
     const products = await fetchProdutos();
@@ -11,7 +12,7 @@ export const getStaticProps = async () => {
 
 const Products = (props) => {
     return (
-        <>
+        <div className="d-flex flex-column min-vh-100">
             <Head>
                 <title>Nossos Produtos</title>
                 <meta
@@ -20,15 +21,19 @@ const Products = (props) => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            
+
             <Header />
 
-            <Container className="mb-5">
-                <h1 className="my-5">Nossos Produtos</h1>
+            <main className="flex-grow-1">
+                <Container className="mb-5">
+                    <h1 className="my-5">Nossos Produtos</h1>
 
-                {<ProdutosList products={props.products} />}
-            </Container>
-        </>
+                    {<ProdutosList products={props.products} />}
+                </Container>
+            </main>
+            
+            <Footer />
+        </div>
     );
 };
 
