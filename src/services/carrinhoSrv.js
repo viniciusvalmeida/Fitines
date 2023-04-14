@@ -1,4 +1,4 @@
-const carrinhoServ = {
+const carrinhoSrv = {
   addProduto: async produtoId => {
     await fetch(`${process.env.NEXT_PUBLIC_HOST_ADDRESS}/api/carrinhos/1`, {
       method: 'POST',
@@ -13,7 +13,15 @@ const carrinhoServ = {
      const carrinho = await res.json()
      
      return carrinho
+  },
+
+  deleteProduct: async id => {
+    await fetch(`${process.env.NEXT_PUBLIC_HOST_ADDRESS}/api/carrinhos/1`, {
+      method: 'DELETE',
+      body: JSON.stringify({ProdutoId: id}),
+      headers: {"Content-type": "application/json; charset=UTF-8"}
+    }).then(res => console.log(res))
   }
 }
 
-export default carrinhoServ
+export default carrinhoSrv

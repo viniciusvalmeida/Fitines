@@ -17,6 +17,7 @@ const CarrinhoList = ({ carrinho }) => {
                     <th>Produtos</th>
                     <th>Und</th>
                     <th>Sub-total</th>
+                    <th></th>
                 </tr>
             </thead>
 
@@ -27,7 +28,7 @@ const CarrinhoList = ({ carrinho }) => {
                 <tr>
                     <td></td>
                     <td></td>
-                    <td colSpan={3} className="fw-bold">
+                    <td colSpan={1} className="fw-bold">
                         TOTAL: R${total.toFixed(2)}
                     </td>
                 </tr>
