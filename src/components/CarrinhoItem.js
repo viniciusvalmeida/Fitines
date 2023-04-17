@@ -26,7 +26,7 @@ function CarrinhoItem({ product, setTotal }) {
     };
 
     return (
-        <tr key={id}>
+        <tr>
             <td>
                 <Image
                     className="me-1"
@@ -54,7 +54,7 @@ function CarrinhoItem({ product, setTotal }) {
             <td>R$ {subTotal}</td>
 
             <td>
-                    <a href="#" className="link-dark" onClick={ () => carrinhoSrv.deleteProduct(id) }>
+                    <a href="carrinho" className="link-dark" onClick={ () => carrinhoSrv.deleteProduct(id) }>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="20"
