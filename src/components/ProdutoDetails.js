@@ -2,9 +2,18 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { Button, Col, Row } from "reactstrap";
 import SuccessToast from "./SuccessToast";
+import carrinhoSrv from "../services/carrinhoSrv";
 
 const ProductDetails = ({ product }) => {
     const [toastIsOpen, setToastIsOpen] = useState(false);
+
+    const handleClick = async (id) => {
+        setToastIsOpen(true);
+        setTimeout(() => setToastIsOpen(false), 1000 * 3);
+        
+        await carrinhoSrv.addProduto(id)
+    };
+
 
     return (
         <Row>
@@ -32,10 +41,7 @@ const ProductDetails = ({ product }) => {
                 <Button 
                   color="dark" 
                   className="my-3 pb-2"
-                  onClick={() => {
-                    setToastIsOpen(true);
-                    setTimeout(() => setToastIsOpen(false), 1000 * 3);
-                  }}
+                  onClick={() => handleClick(product.id)}
                 >
                     Compre agora
                 </Button>
