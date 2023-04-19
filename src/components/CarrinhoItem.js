@@ -41,7 +41,7 @@ function CarrinhoItem({ product, setTotal }) {
             </td>
 
             <td> 
-                <div className="d-flex justify-content-center align-items-center">
+                <div className="d-flex justify-content-center align-items-center pt-3">
                     <Button
                         className="btn-sm me-3"
                         onClick={() => handleUndReduce()}
@@ -55,10 +55,10 @@ function CarrinhoItem({ product, setTotal }) {
                 </div>
             </td>
 
-            <td><div className="d-flex justify-content-center align-content-center">R$ {subTotal}</div></td>
+            <td><div className="d-flex justify-content-center align-content-center pt-3">R$ {subTotal}</div></td>
 
-            <td>
-                    <a href="carrinho" className="link-dark" onClick={ () => carrinhoSrv.deleteProduct(id) }>
+            <td className="pt-4">
+                    <a href="./carrinho" className="link-dark" onClick={ () => carrinhoSrv.deleteProduct(id) }>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="20"
