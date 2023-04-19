@@ -28,30 +28,34 @@ function CarrinhoItem({ product, setTotal }) {
     return (
         <tr>
             <td>
-                <Image
-                    className="me-1"
-                    src={`/produtos/${Imagem}`}
-                    alt={Nome}
-                    width={70}
-                    height={70}
-                />
-                {Nome}
+                <div className="d-flex justify-content-center align-items-center">
+                    <Image
+                        className="me-1"
+                        src={`/produtos/${Imagem}`}
+                        alt={Nome}
+                        width={70}
+                        height={70}
+                    />
+                    {Nome}
+                </div>
             </td>
 
-            <td className="w-25">
-                <Button
-                    className="btn-sm me-3"
-                    onClick={() => handleUndReduce()}
-                >
-                    -
-                </Button>
-                {und}
-                <Button className="btn-sm ms-3" onClick={() => handleUndSum()}>
-                    +
-                </Button>
+            <td> 
+                <div className="d-flex justify-content-center align-items-center">
+                    <Button
+                        className="btn-sm me-3"
+                        onClick={() => handleUndReduce()}
+                    >
+                        -
+                    </Button>
+                    {und}
+                    <Button className="btn-sm ms-3" onClick={() => handleUndSum()}>
+                        +
+                    </Button>
+                </div>
             </td>
 
-            <td>R$ {subTotal}</td>
+            <td><div className="d-flex justify-content-center align-content-center">R$ {subTotal}</div></td>
 
             <td>
                     <a href="carrinho" className="link-dark" onClick={ () => carrinhoSrv.deleteProduct(id) }>
